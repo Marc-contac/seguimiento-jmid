@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#063c78">
+<title>Registros | Dashboard local v2.9.1</title>
+<style>
+:root{--navy:#073a72;--blue:#0067b4;--deep:#092e59;--soft:#eef5fc;--ink:#172b45;--muted:#66788c;--line:#e0e7ef;--bg:#f4f7fb;--white:#fff;--green:#0b8067;--red:#b93c4a;--shadow:0 12px 32px rgba(21,49,79,.075)}
+*{box-sizing:border-box}html{font-family:Inter,"Segoe UI",Arial,sans-serif;-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.52;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #69b9ef;outline-offset:2px}input,select{min-width:0}a{color:var(--blue)}.site-header{background:linear-gradient(105deg,#062e60,#07559a);color:#fff;padding:25px clamp(18px,4vw,54px) 22px}.header-inner{max-width:1310px;margin:auto;display:flex;justify-content:space-between;gap:18px;align-items:center}.identity{display:flex;align-items:center;gap:15px}.brand-mark{width:46px;height:46px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:13px;display:grid;place-items:center;font-size:24px;font-weight:900;letter-spacing:-.06em}.brand h1{font-size:clamp(24px,3.4vw,34px);margin:0;letter-spacing:-.8px}.brand p{margin:4px 0 0;color:#cfe2f5;font-size:13px}.header-meta{text-align:right}.header-meta strong{display:block;font-size:14px;line-height:1.4}.header-meta small{display:block;color:#cfdef1;margin-top:5px}.container{max-width:1310px;margin:0 auto;padding:25px clamp(14px,3.5vw,40px) 92px}.topline{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap}.tabs,.segmented{display:inline-flex;background:#e7edf5;padding:4px;border-radius:12px;gap:3px}.tabs button,.segmented button{border:0;background:none;border-radius:9px;color:#5b6b7d;font-size:14px;font-weight:700;padding:11px 19px}.tabs button.active,.segmented button.active{background:#fff;color:var(--navy);box-shadow:0 2px 8px rgba(27,48,74,.11)}.btn{border:1px solid var(--line);padding:11px 15px;border-radius:10px;background:#fff;color:var(--ink);font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:.15s}.btn:hover{border-color:#a7bdd4;background:#f7fbff}.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue)}.btn-primary:hover{background:#005595;color:#fff}.btn-danger{color:var(--red);border-color:#efccd1}.btn-sm{padding:7px 10px;font-size:12px}.period-row{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}.period-row h2,.section-title h2{margin:0;font-size:19px;letter-spacing:-.35px}.subtle{color:var(--muted);font-size:13px;margin-top:4px}.period-row .segmented button{padding:9px 16px;font-size:12px}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.kpi{background:#fff;min-height:118px;border:1px solid var(--line);border-radius:15px;padding:19px 20px;box-shadow:var(--shadow)}.kpi .name{font-size:12px;letter-spacing:.02em;font-weight:750;color:#64768b}.kpi .value{font-size:35px;font-weight:790;letter-spacing:-1.5px;margin:8px 0 5px;font-variant-numeric:tabular-nums}.kpi .note{font-size:11px;color:var(--muted)}.kpi.featured{border-top:4px solid var(--blue);padding-top:16px}.dash-grid{display:grid;grid-template-columns:1.48fr 1fr;gap:17px;margin-top:19px}.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:21px;box-shadow:var(--shadow);min-width:0}.panel-heading{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:18px}.panel-heading h3{margin:0;font-size:16px;letter-spacing:-.2px}.panel-heading p{margin:6px 0 0;font-size:12px;color:var(--muted)}.day-chart{height:222px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px;align-items:end}.chart-day{display:flex;flex-direction:column;align-items:center;justify-content:end;height:100%;min-width:0;gap:9px}.chart-number{font-size:11px;color:#425873;font-weight:800;font-variant-numeric:tabular-nums}.chart-bar-wrap{height:160px;width:100%;max-width:43px;border-radius:8px 8px 4px 4px;background:#f1f5fa;display:flex;align-items:end;overflow:hidden}.chart-bar{width:100%;min-height:0;background:linear-gradient(#1682ca,#07599d);border-radius:7px 7px 4px 4px;transition:height .25s}.chart-label{font-size:11px;color:#61748a;font-weight:650}.metric-list{display:grid;gap:16px}.metric-line{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px}.metric-line strong{font-size:17px;font-variant-numeric:tabular-nums}.track{height:7px;margin-top:7px;border-radius:99px;background:#eaf0f5;overflow:hidden}.track span{height:100%;display:block;background:#0c6fae;border-radius:99px}.summary-strip{display:flex;gap:17px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:15px;margin-top:20px;color:#4b5d72;font-size:12px}.summary-strip strong{color:var(--ink)}.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:26px 0 14px;flex-wrap:wrap}.table-panel{padding:0;overflow:hidden}.filters{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line)}.field,.filter-input{width:100%;border:1px solid #d5e0eb;background:#fff;border-radius:10px;padding:11px 12px;color:var(--ink);font-size:14px}.filter-input{max-width:310px;flex:1 1 200px}.filter-select{padding:10px 13px;border:1px solid #d5e0eb;border-radius:10px;background:#fff;color:var(--ink);font-size:13px;max-width:175px}.count-label{color:var(--muted);font-size:12px;margin-left:auto}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:12px}th{text-align:left;background:#f6f9fc;color:#596d83;font-size:11px;letter-spacing:.02em;text-transform:uppercase;font-weight:800;padding:14px 13px;border-bottom:1px solid var(--line)}td{padding:13px;border-bottom:1px solid #ecf1f6;color:#394b60}tbody tr:hover{background:#f8fbfe}td strong{color:var(--ink)}.pill{display:inline-block;padding:5px 9px;font-size:11px;border-radius:7px;font-weight:800}.pill.regular{color:#12649b;background:#e5f3fb}.pill.garantizada{color:#805b17;background:#fdf1d9}.yes{color:var(--green);font-weight:750}.no{color:#b9c4ce}.danger-text{color:var(--red);font-weight:800}.table-actions{display:flex;gap:6px}.table-actions button{font-size:11px;border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 9px;color:#33516e}.table-actions button:hover{background:#edf5fc}.empty{padding:58px 20px;text-align:center;color:var(--muted);font-size:13px}.empty strong{display:block;color:var(--ink);font-size:15px;margin-bottom:7px}.empty .btn{margin-top:13px}.table-foot{padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.paging{display:flex;align-items:center;gap:8px}.paging span{color:#6a7b8c;font-size:12px}.fab{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;background:var(--blue);color:white;font-size:31px;line-height:1;border:0;border-radius:20px;box-shadow:0 12px 30px rgba(0,78,143,.32);transition:transform .2s}.fab.open{transform:rotate(45deg)}.fab-menu{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:calc(max(24px,env(safe-area-inset-bottom)) + 73px);z-index:60;width:min(310px,calc(100vw - 40px));border:1px solid var(--line);border-radius:16px;background:#fff;padding:10px;box-shadow:0 19px 65px rgba(9,34,63,.21)}.fab-menu[hidden]{display:none}.fab-menu h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7990a6;margin:8px 10px 6px}.fab-menu button{width:100%;text-align:left;border:0;background:#fff;border-radius:8px;padding:12px 10px;display:flex;justify-content:space-between;align-items:center;gap:10px;color:#26415d;font-size:13px;font-weight:650}.fab-menu button:hover{background:#eef5fc}.fab-menu button span{color:#8090a3;font-size:11px;font-weight:500}.fab-backdrop{position:fixed;inset:0;z-index:59;background:transparent}.fab-backdrop[hidden]{display:none}.modal-backdrop{position:fixed;inset:0;z-index:90;background:rgba(10,29,53,.48);display:flex;align-items:center;justify-content:center;padding:18px}.modal-backdrop[hidden]{display:none}.modal{width:min(650px,100%);max-height:min(92vh,1000px);overflow-y:auto;border-radius:18px;background:#fff;box-shadow:0 25px 95px rgba(5,23,47,.24)}.modal.wide{width:min(760px,100%)}.modal-head{padding:22px 26px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:start;gap:14px}.modal-head h2{margin:0;font-size:21px}.modal-head p{margin:5px 0 0;color:var(--muted);font-size:12px}.close{border:0;background:#eef2f6;border-radius:9px;font-size:22px;color:#596e83;width:33px;height:33px;line-height:1}.modal-body{padding:23px 26px 26px}.modal-footer{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;padding:16px 26px 22px;border-top:1px solid var(--line)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-group{display:flex;flex-direction:column;gap:7px}.form-group label,.field-label{font-size:12px;font-weight:800;color:#435a74}.form-group .hint{font-size:11px;color:var(--muted)}.product-choice{display:flex;gap:10px;margin-top:12px}.product-choice button{flex:1;border:1.5px solid #d1dfed;background:#f6f9fc;color:#516984;padding:18px 9px;border-radius:12px;font-weight:800}.product-choice button.selected{background:#e9f4fe;border:2px solid #0872b8;color:#07548f;padding:17.5px 8.5px}.product-choice button.selected.gold{background:#fdf5e4;border-color:#cc981e;color:#85610e}.product-choice[hidden],.product-picked[hidden]{display:none}.product-picked{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:10px;padding:10px 12px;border:1px solid #d8e7f5;border-radius:10px;background:#f5f9fd;color:#254b72;font-size:13px;font-weight:750}.product-picked .pill{font-size:12px}.product-picked .btn{flex-shrink:0}.form-fields[hidden]{display:none}.toggle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}.toggle-btn{min-height:54px;border:1px solid #d7e1eb;background:#fff;border-radius:10px;color:#4e6276;font-weight:750;padding:10px 8px;font-size:12px;display:flex;gap:8px;align-items:center;justify-content:center}.toggle-btn .indicator{border:1.5px solid #bdcbd8;border-radius:5px;width:17px;height:17px;font-size:12px;display:grid;place-items:center;flex-shrink:0}.toggle-btn.on{background:#e8f5f1;color:#087962;border-color:#80c8b6}.toggle-btn.on .indicator{background:#0c856a;color:#fff;border-color:#0c856a}.toggle-btn.on .indicator::after{content:'✓'}.toggle-btn.alert.on{color:#ad3145;background:#fff0f2;border-color:#eeb4bc}.toggle-btn.alert.on .indicator{background:#be4256;border-color:#be4256}.divider{height:1px;background:var(--line);margin:20px 0}.setting-section h3{font-size:14px;margin:0 0 14px}.setting-section p{font-size:12px;color:var(--muted);line-height:1.6;margin:7px 0 14px}.inline-form{display:flex;gap:9px}.inline-form .field{flex:1}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid #d6e4ef;border-radius:7px;padding:7px 10px;background:#f5f9fc;color:#3e5a78;font-size:12px;font-weight:650}.chip button{border:0;background:transparent;color:#a14f5a;font-size:18px;padding:0;line-height:1}.check-row{display:flex;gap:11px;align-items:start;padding:8px 0;font-size:13px;color:#38506c}.check-row input{margin-top:3px;accent-color:#0067b4}.manage-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.notice{border:1px solid #d6e5f1;background:#f3f8fc;color:#4a6078;padding:13px;border-radius:10px;font-size:12px;line-height:1.6}.import-controls{display:grid;gap:15px}.import-actions{display:flex;gap:10px;flex-wrap:wrap}.toast{position:fixed;bottom:105px;left:50%;transform:translateX(-50%);z-index:200;background:#162d43;color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;box-shadow:0 10px 27px #001b3c35;max-width:calc(100vw - 30px);text-align:center}.toast[hidden]{display:none}.footer{text-align:center;color:#92a0af;font-size:11px;padding:12px}.sr-only{position:absolute!important;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}.hidden{display:none!important}@media(max-width:940px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-grid{grid-template-columns:1fr}.chart-bar-wrap{max-width:60px}}@media(max-width:520px){.site-header{padding:18px 16px}.header-inner{align-items:flex-start}.brand-mark{height:40px;width:40px}.header-meta{max-width:140px}.header-meta strong{font-size:11px}.brand h1{font-size:25px}.container{padding-top:18px}.topline{align-items:stretch}.topline>.btn{flex:1}.kpis{gap:9px}.kpi{min-height:111px;padding:16px}.kpi.featured{padding-top:13px}.kpi .value{font-size:30px}.kpi .name{font-size:11px}.panel{padding:16px}.toggle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.form-grid,.manage-grid{grid-template-columns:1fr}.modal-backdrop{padding:9px}.modal-head{padding:18px}.modal-body{padding:18px}.modal-footer{padding:14px 18px 19px}.product-choice button{padding:16px 6px}.product-choice button.selected{padding:15.5px 5.5px}.day-chart{gap:8px}.header-meta small{font-size:11px}.filters .count-label{margin-left:0;width:100%}}
+
+/* Manual de uso integrado */
+.top-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.btn-help{color:var(--navy);background:#fff;border-color:#cad8e6}
+.help-dialog{width:min(820px,100%)}.help-body{padding-top:20px}.help-intro{background:#eef5fc;border-left:4px solid var(--blue);border-radius:11px;padding:16px 18px}.help-intro strong{color:#0b457d;font-size:15px}.help-intro p{margin:7px 0 0;color:#4b6781;font-size:13px;line-height:1.55}
+.help-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:17px 0 22px}.help-steps>div{background:#fafcff;border:1px solid var(--line);padding:13px 10px;border-radius:10px;display:flex;flex-direction:column;gap:4px}.help-steps span{color:var(--blue);font-size:11px;font-weight:800}.help-steps strong{color:#233c57;font-size:13px}.help-steps small{color:#7a8da0;font-size:11px}
+.help-heading{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:800;font-size:13px;color:#284765;margin:0 0 11px}.help-heading span{font-size:11px;font-weight:400;color:var(--muted)}
+.help-sections{display:grid;gap:9px}.help-sections details{border:1px solid #dce5ef;border-radius:11px;background:#fff;overflow:hidden}.help-sections details[open]{border-color:#c0d4e8;box-shadow:0 3px 13px rgba(7,53,102,.045)}.help-sections summary{list-style:none;display:flex;align-items:center;gap:12px;padding:13px 15px;cursor:pointer;color:#183d66;font-size:14px;font-weight:800;user-select:none}.help-sections summary::-webkit-details-marker{display:none}.help-sections summary:focus-visible{outline:3px solid #69b9ef;outline-offset:-3px}.help-sections summary>span:nth-child(2){flex:1}.help-sections summary small{display:block;margin-top:4px;font-weight:400;color:#7b8b9a;font-size:11px}.help-index{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:8px;background:#eef6ff;color:#0d69ae;font-size:11px}.help-chevron{height:9px;width:9px;border-right:2px solid #597995;border-bottom:2px solid #597995;transform:rotate(45deg);transition:transform .15s;margin:0 5px 4px}.help-sections details[open] .help-chevron{transform:rotate(225deg);margin-top:6px;margin-bottom:0}.help-detail{border-top:1px solid #edf1f6;padding:14px 18px 17px 56px;color:#405670;font-size:13px;line-height:1.65}.help-detail ol,.help-detail ul{margin:0 0 8px;padding-left:20px}.help-detail li{padding-left:2px;margin:6px 0}.help-detail p{margin:5px 0 12px}.help-tip{background:#f2f7fb;padding:10px 12px;border-radius:7px;color:#546f88;font-size:12px;margin:12px 0 0!important}.help-footer{position:sticky;bottom:0;background:#fff;box-shadow:0 -5px 18px rgba(22,56,97,.06)}
+@media(max-width:520px){.top-actions{width:100%;display:grid;grid-template-columns:1fr 1.25fr}.top-actions .btn{min-width:0;font-size:12px;padding:10px}.help-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.help-body{padding:16px}.help-detail{padding:12px 14px 14px}.help-sections summary{padding:12px 11px;font-size:13px;gap:8px}.help-footer{padding:11px 14px;gap:7px}.help-footer .btn{font-size:12px;padding:10px;flex:1}.help-footer .btn:first-child{display:none}}
+
+/* v1.3: opciones en barra superior, registro y reporte flotantes */
+.btn-options{border-color:#b9cee2;background:#fff;color:#073a72}
+.btn-options:hover,.btn-options.open{background:#eaf3fb;border-color:#77a7d0;color:#073a72}
+#topMenu{position:relative;z-index:61}
+.fab{width:auto;min-width:60px;height:58px;padding:0 19px;border-radius:17px;font-size:15px;font-weight:800;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:7px}
+.fab.open{transform:none}
+.fab-menu{bottom:auto;top:100px;right:20px;max-height:75vh;overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:520px){.top-actions{grid-template-columns:1fr 1fr}.fab{right:max(16px,env(safe-area-inset-right));bottom:max(17px,env(safe-area-inset-bottom));height:56px;padding:0 15px;font-size:14px}}
+
+/* Botón independiente de copia, siempre visible sobre Nuevo registro. */
+.container{padding-bottom:170px}
+.fab-copy{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:calc(max(24px,env(safe-area-inset-bottom)) + 70px);z-index:60;height:52px;min-width:151px;border:1px solid #b9cee2;border-radius:15px;padding:0 17px;background:#fff;color:#0c4b82;box-shadow:0 10px 27px rgba(11,54,93,.2);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap}
+.fab-copy:hover{background:#f0f7ff;border-color:#81afd6}
+@media(max-width:520px){.fab-copy{right:max(16px,env(safe-area-inset-right));bottom:calc(max(17px,env(safe-area-inset-bottom)) + 68px);height:50px;font-size:13px;padding:0 14px}}
+
+/* v1.4: pestaña de incidencias y gestión completa */
+.incident-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.incident-kpis{margin:0 0 17px}.incident-kpis .kpi{min-height:102px}.incident-kpis .kpi .value{font-size:30px}.pending-panel{margin-bottom:17px;padding:17px 20px}.pending-panel .panel-heading{margin-bottom:10px}.pending-list{display:flex;gap:8px;flex-wrap:wrap}.pending-item{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#f6f9fc;border:1px solid #dce7f1;border-radius:10px;padding:9px 12px;font-size:12px}.pending-item strong{font-size:12px}.pending-item small{color:#698198}.incident-description{max-width:280px;min-width:170px;white-space:normal;line-height:1.4}.status-badge,.priority-pill{display:inline-block;border-radius:7px;font-size:11px;padding:5px 9px;font-weight:800;white-space:nowrap}.status-abierta{background:#fff1e8;color:#a55422}.status-seguimiento{background:#edf5ff;color:#1666a5}.status-resuelta{background:#e7f7f0;color:#137354}.priority-alta{background:#fae8ed;color:#a3314a}.priority-media{background:#fdf2d7;color:#8a6314}.priority-baja{background:#edf2f8;color:#4f6b85}.form-span{grid-column:1/-1}.form-group textarea.field{resize:vertical;line-height:1.5;min-height:80px}.incident-footnote{margin:14px 4px 0;line-height:1.5}.incident-footer-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:14px 0 0}.incident-delete{color:#ab3440!important}.inc-empty{white-space:normal}.record-link{border:0;background:none;color:var(--blue);font-weight:800;padding:0;text-align:left;text-decoration:underline}.pending-note{font-size:11px;color:#8093a4;margin-left:8px;white-space:nowrap}
+@media(max-width:780px){.incident-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.incident-toolbar .btn{flex:1 1 110px}.pending-list{display:grid;grid-template-columns:1fr}.pending-item{justify-content:space-between}.incident-description{min-width:155px}}
+@media(max-width:520px){.incident-toolbar{width:100%}.incident-toolbar .btn{font-size:12px;padding:10px 7px}.incident-kpis .kpi{padding:14px;min-height:90px}.incident-kpis .kpi .value{font-size:27px}.tabs button{padding:10px 11px;font-size:12px}.tabs{max-width:100%}.form-grid{grid-template-columns:1fr}.form-span{grid-column:1}}
+/* Incidencias V1.8: lista automática vinculada con los registros */
+.incident-row{cursor:pointer;transition:background .15s}.incident-row:hover,.incident-row:focus-visible{background:#eaf4fd!important;outline:2px solid #4f9ed0;outline-offset:-2px}
+.incident-summary{white-space:normal;max-width:370px;line-height:1.45}.incident-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-bottom:20px}
+.incident-detail-item{background:#f5f8fc;border:1px solid #e2eaf3;border-radius:10px;padding:12px;min-width:0}
+.incident-detail-item small{display:block;color:#6c7d8d;font-size:11px;font-weight:750;margin-bottom:5px}
+.incident-detail-item strong{display:block;color:#173b63;font-size:13px;overflow-wrap:anywhere}
+.incident-detail-item.full{grid-column:1/-1}.incident-switch{display:flex;align-items:center;gap:12px;background:#f6fafb;border:1px solid #d8e6e9;border-radius:11px;padding:14px 15px;margin-top:14px;color:#235166;font-size:14px;font-weight:750}
+.incident-switch input{width:22px;height:22px;accent-color:#0b7e6b;flex-shrink:0}.incident-note{color:#76889a;font-size:12px;margin:13px 0 0;line-height:1.5}
+@media(max-width:520px){.incident-detail-grid{grid-template-columns:1fr 1fr;gap:8px}.incident-detail-item{padding:10px}.incident-detail-item strong{font-size:12px}.incident-summary{min-width:180px}}
+/* V1.9: consulta por fila en la base y en el dashboard */
+.record-row{cursor:pointer;transition:background .15s}
+.record-row:hover,.record-row:focus-visible{background:#eaf4fd!important;outline:2px solid #4f9ed0;outline-offset:-2px}
+.record-detail-actions{justify-content:space-between;gap:8px}
+.record-detail-actions .record-action-group{display:flex;gap:8px;flex-wrap:wrap}
+.record-detail-actions .btn{min-height:42px}
+@media(max-width:520px){.record-detail-actions{display:grid;grid-template-columns:1fr 1fr}.record-detail-actions .record-action-group{display:contents}.record-detail-actions .btn{width:100%;padding:12px 8px}.record-detail-actions #detailCopy{grid-column:1/-1;grid-row:1}.record-detail-actions #detailDelete{grid-column:1/-1}}
+/* V2.1: captura por botones, sin casillas ni listas desplegables. */
+.only-edit[hidden],.toggle-btn[hidden]{display:none!important}
+.toggle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.toggle-btn{min-height:52px;border:1.5px solid #ccd9e8;background:#f7faff;color:#3a5571;border-radius:11px;font-size:13px;font-weight:750;transition:background .15s,border-color .15s}
+.toggle-btn.on{background:#dff2eb;border-color:#158568;color:#08654c;box-shadow:inset 0 0 0 1px #158568}
+.toggle-btn.on::before{content:'✓';font-size:13px;font-weight:900}
+.toggle-btn.alert.on{background:#fff0f2;border-color:#be4256;color:#9f3344}
+.promoter-button-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:204px;overflow-y:auto;padding:3px 1px}
+.promoter-option{border:1.5px solid #d5e1ed;border-radius:11px;background:#f8fafc;color:#3b5573;min-height:45px;padding:9px;font-size:12px;font-weight:750;overflow-wrap:anywhere}
+.promoter-option.on{background:#e5f2ff;border-color:#0872b8;color:#07548f;box-shadow:inset 0 0 0 1px #0872b8}
+.promoter-option.on::before{content:'✓ ';font-weight:900}
+@media(max-width:520px){.promoter-button-grid{max-height:186px}.toggle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Configuración inicial y comentario opcional v2.4 */
+.setup-modal{width:min(590px,100%)}
+.setup-intro{font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 18px}
+.setup-required{color:var(--red)}
+.setup-promoter-row{display:flex;align-items:stretch;gap:8px}
+.setup-promoter-row>.field{flex:1;min-width:0}
+.setup-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.setup-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 8px 6px 11px;border:1px solid #cdddeb;background:#f0f7fe;border-radius:100px;font-size:12px;color:#235077;font-weight:700;max-width:100%}
+.setup-chip button{border:0;background:transparent;color:#9b3442;font-weight:900;font-size:16px;line-height:1}
+.setup-note{font-size:12px;color:var(--muted);margin:11px 0 0}
+.setup-note.error{color:var(--red);font-weight:700}
+.comment-mini{margin-top:15px;border:1px solid #e2eaf2;background:#fafcfe;border-radius:10px;padding:9px 12px}
+.comment-mini label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750;color:#345472;cursor:pointer}
+.comment-mini input[type=checkbox]{width:16px;height:16px;accent-color:var(--blue);cursor:pointer;margin:0}
+.comment-mini label small{font-size:11px;color:#8294a5;font-weight:400;margin-left:auto}
+.comment-mini .form-group{padding-top:10px}
+.comment-mini .form-group[hidden]{display:none}
+.comment-mini textarea{resize:vertical;min-height:65px;max-height:170px}
+@media(max-width:520px){.setup-promoter-row .btn{padding:9px 11px}.setup-modal .modal-body{padding:18px}.comment-mini{padding:10px}}
+/* V2.5 · Configuración de perfil y datos de cliente sin persistencia */
+.form-group[hidden],.profile-assignment[hidden],.client-temp[hidden],.fixed-promoter[hidden]{display:none!important}
+.profile-role-buttons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:5px}
+.profile-role-buttons button{padding:12px 10px;border:1.5px solid #ccd9e8;background:#f7faff;border-radius:11px;font-size:13px;font-weight:800;color:#355371}
+.profile-role-buttons button.active{background:#e5f2ff;border-color:#0872b8;color:#07548f;box-shadow:inset 0 0 0 1px #0872b8}
+.profile-role-buttons button.active::before{content:'✓ ';font-weight:900}
+.profile-assignment{margin-top:12px}
+.client-temp{padding:14px;border:1px solid #cddfec;border-radius:12px;background:#f3f9ff;margin-top:16px}
+.client-temp h3{margin:0;font-size:14px;color:#174877}
+.client-temp p{margin:5px 0 15px;font-size:11px;color:#617a90;line-height:1.5}
+.client-temp .form-group{margin-top:11px}
+.client-temp .field{background:white}
+.fixed-promoter{padding:12px;border:1px solid #caddf0;border-radius:11px;background:#eff7ff;color:#164a7c;font-size:13px;margin:12px 0}
+.fixed-promoter small{display:block;font-size:11px;color:#637d95;margin-bottom:4px}
+.mode-summary{font-size:11px;color:#6e7e90;margin-top:6px}
+/* V2.9: menú flotante de exportación; + Nuevo registro permanece independiente. */
+.fab-export{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:calc(max(24px,env(safe-area-inset-bottom)) + 70px);z-index:63;min-width:169px;height:52px;border:1px solid #b9cee2;border-radius:15px;padding:0 16px;background:#fff;color:#0c4b82;box-shadow:0 10px 27px rgba(11,54,93,.20);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
+.fab-export:hover,.fab-export.open{background:#eaf3fb;border-color:#78a9d2}
+.export-menu{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:calc(max(24px,env(safe-area-inset-bottom)) + 135px);z-index:64;width:min(338px,calc(100vw - 32px));max-height:min(68vh,525px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #cbd9e7;border-radius:16px;background:#fff;padding:10px;box-shadow:0 19px 65px rgba(9,34,63,.24)}
+.export-menu[hidden]{display:none}
+.export-menu h4{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#7489a0;margin:8px 10px 6px}
+.export-menu button{width:100%;text-align:left;border:0;background:#fff;border-radius:9px;padding:12px 10px;display:flex;justify-content:space-between;align-items:center;gap:10px;color:#224463;font-size:13px;font-weight:750}
+.export-menu button:hover,.export-menu button:focus-visible{background:#eef5fc}
+.export-menu button span{font-size:11px;font-weight:500;color:#7f90a4;text-align:right}
+.daily-report-note{margin-top:13px;font-size:12px;color:#657991;line-height:1.5}
+@media(max-width:520px){.fab-export{right:max(16px,env(safe-area-inset-right));bottom:calc(max(17px,env(safe-area-inset-bottom)) + 68px);height:50px;font-size:13px;padding:0 14px;min-width:146px}.export-menu{right:max(16px,env(safe-area-inset-right));bottom:calc(max(17px,env(safe-area-inset-bottom)) + 130px);max-height:calc(100dvh - 155px)}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><div class="identity"><div class="brand-mark">R</div><div class="brand"><h1>Registros</h1><p>Control operativo · Dashboard local V2.9.1</p></div></div><div class="header-meta"><strong id="moduleLabel">Módulo sin configurar</strong><small id="headerDate">—</small></div></div></header>
+<div id="storageWarning" role="alert" hidden style="max-width:1310px;margin:12px auto 0;padding:13px 18px;background:#fff1ec;color:#8c3925;border:1px solid #f4c8bd;border-radius:9px;font-size:13px;line-height:1.5"></div>
+<main class="container">
+ <div class="topline"><div class="tabs" role="tablist" aria-label="Secciones"><button id="tabDashboard" class="active" data-tab="dashboard" role="tab" aria-selected="true">Dashboard</button><button id="tabRecords" data-tab="records" role="tab" aria-selected="false">Registros</button><button id="tabIncidents" data-tab="incidents" role="tab" aria-selected="false">Incidencias</button></div><div class="top-actions"><button class="btn btn-help" id="topHelp" type="button">? Cómo usar</button><button class="btn btn-options" id="topMenu" type="button" aria-haspopup="true" aria-controls="fabMenu" aria-expanded="false">☰ Opciones</button></div></div>
+ <section id="dashboardView">
+  <div class="period-row"><div><h2>Resumen de actividad</h2><div class="subtle" id="periodText">—</div></div><div class="segmented" role="group" aria-label="Periodo del dashboard"><button data-period="today">Hoy</button><button class="active" data-period="week">Semana</button><button data-period="all">Total</button></div></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="dash-grid"><section class="panel"><div class="panel-heading"><div><h3>Evolución de ventas</h3><p id="chartSubtitle">Semana operativa · lunes a domingo</p></div><span class="pill regular">Lun – Dom</span></div><div class="day-chart" id="dayChart" role="img" aria-label="Gráfico de ventas diarias"></div><div class="summary-strip"><div>Conversión: <strong id="conversionLabel">0%</strong></div><div>Registros del periodo: <strong id="countLabel">0</strong></div></div></section>
+  <section class="panel"><div class="panel-heading"><div><h3>Indicadores complementarios</h3><p>Distribución de las ventas registradas</p></div></div><div class="metric-list" id="metricList"></div></section></div>
+  <div class="section-title"><div><h2>Últimos registros</h2><div class="subtle">Movimientos recientes del periodo seleccionado</div></div><button class="btn btn-sm" id="seeAll">Ver todos los registros</button></div>
+  <div class="panel table-panel"><div class="table-scroll" id="recentTable"></div></div>
+ </section>
+ <section id="recordsView" hidden>
+  <div class="period-row"><div><h2>Base de registros</h2><div class="subtle">Consulta, edita, filtra y administra los datos almacenados en este dispositivo.</div></div><button class="btn" id="backupQuick">Exportar respaldo JSON</button></div>
+  <div class="panel table-panel"><div class="filters"><input id="searchInput" class="filter-input" type="search" placeholder="Buscar folio, código, promotor o comentario…" aria-label="Buscar registros"><select class="filter-select" id="filterPeriod" aria-label="Filtrar por periodo"><option value="all">Todas las fechas</option><option value="today">Hoy</option><option value="week">Esta semana</option></select><select class="filter-select" id="filterType" aria-label="Filtrar por producto"><option value="all">Todos los tipos</option><option value="Regular">Regulares</option><option value="Garantizada">Garantizadas</option></select><span id="recordsCount" class="count-label"></span></div><div class="table-scroll" id="allTable"></div><div class="table-foot"><span id="pageCount" class="subtle">—</span><div class="paging"><button class="btn btn-sm" id="prevPage">Anterior</button><span id="pageLabel"></span><button class="btn btn-sm" id="nextPage">Siguiente</button></div></div></div>
+ </section>
+
+  <section id="incidentsView" hidden>
+    <div class="period-row"><div><h2>Seguimiento de incidencias</h2><div class="subtle">Incidencias tomadas de los registros. Toca cualquier fila para consultar, comentar y resolver.</div></div><div class="incident-toolbar"><button class="btn" id="incidentsCSV" type="button">Exportar CSV</button><button class="btn" id="incidentsPDF" type="button">Exportar PDF</button></div></div>
+    <div class="kpis incident-kpis" id="incidentKpis"></div>
+    <div class="panel table-panel"><div class="filters"><input id="incidentSearch" class="filter-input" type="search" placeholder="Buscar folio, promotor o comentario…" aria-label="Buscar incidencias"><select id="incidentStatusFilter" class="filter-select" aria-label="Filtrar por resolución"><option value="all">Todas</option><option value="pending">Sin resolver</option><option value="resolved">Resueltas</option></select><select id="incidentPeriodFilter" class="filter-select" aria-label="Periodo"><option value="all">Todas las fechas</option><option value="today">Hoy</option><option value="week">Esta semana</option></select><span id="incidentsCount" class="count-label"></span></div><div class="table-scroll" id="incidentsTable"></div><div class="table-foot"><span class="subtle" id="incidentPageCount">—</span><div class="paging"><button class="btn btn-sm" type="button" id="incidentPrev">Anterior</button><span id="incidentPageLabel"></span><button class="btn btn-sm" type="button" id="incidentNext">Siguiente</button></div></div></div>
+    <p class="subtle incident-footnote">Las incidencias aparecen al activar «Incidencia» en un registro. La fecha, producto y promotor siempre se consultan desde el registro original cuando esté disponible. Los expedientes antiguos se conservan.</p>
+  </section>
+ <div class="footer">Datos guardados localmente en este navegador. Conserva respaldos JSON periódicos.</div>
+</main>
+<div class="fab-backdrop" id="fabBackdrop" hidden></div>
+<div class="fab-menu" hidden id="fabMenu" aria-label="Opciones del dashboard"><h4>Ayuda</h4><button type="button" data-menu="help">Cómo usar <span>Manual de funciones</span></button><h4>Administración</h4><button type="button" data-menu="import">Importar base <span>JSON o CSV</span></button><button type="button" data-menu="settings">Ajustes <span>Módulo y promotores</span></button></div>
+<div class="export-menu" hidden id="exportMenu" aria-label="Opciones de exportación y copiado">
+ <h4>Copiar al portapapeles</h4>
+ <button type="button" data-export="copy">C- Avance y acumulado <span>Día y semana</span></button>
+ <button type="button" data-export="daily">C- Corte Parcial <span>Ventas y seguimiento</span></button>
+ <button type="button" data-export="folios">C- Folios semanales <span>Lunes a domingo</span></button>
+ <h4>Exportar archivos</h4>
+ <button type="button" data-export="png">Exportar dashboard PNG <span>Alta resolución</span></button>
+ <button type="button" data-export="pdf">Exportar reporte PDF <span>Impresión</span></button>
+ <button type="button" data-export="csv">Exportar tabla CSV <span>Datos completos</span></button>
+ <button type="button" data-export="json">Respaldar base JSON <span>Datos y ajustes</span></button>
+</div>
+<button id="exportFab" class="fab-export" type="button" aria-controls="exportMenu" aria-expanded="false" aria-haspopup="true" aria-label="Abrir menú flotante de exportación">⇧ Exportación</button>
+<button aria-label="Nuevo registro" class="fab" id="fab" title="Nuevo registro" type="button">+ Nuevo registro</button>
+<div class="modal-backdrop" id="dailyReportModal" hidden>
+ <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dailyReportTitle">
+  <div class="modal-head"><div><h2 id="dailyReportTitle">C- Corte Parcial</h2><p>Ventas de hoy y acción para el ejecutivo rezagado.</p></div><button class="close" type="button" data-close="dailyReportModal" aria-label="Cerrar">×</button></div>
+  <form id="dailyReportForm" autocomplete="off">
+   <div class="modal-body">
+    <div class="form-group"><label for="laggingPromoter">Ejecutivo rezagado *</label><select id="laggingPromoter" class="field" required><option value="">Selecciona un promotor</option></select><div class="hint">Puedes elegir a cualquier promotor configurado, incluso si tiene cero ventas hoy.</div></div>
+    <div class="form-group" style="margin-top:16px"><label for="laggingAction">Comentario de accionar *</label><textarea id="laggingAction" class="field" rows="4" maxlength="1500" required placeholder="Describe la acción concreta que realizará para mejorar sus resultados…"></textarea></div>
+    <p class="daily-report-note">Al pulsar «Copiar corte parcial» se copiará directamente el corte con los promotores que vendieron y la acción indicada. La selección, el comentario y el reporte no se guardan en el dispositivo.</p>
+   </div>
+   <div class="modal-footer"><button class="btn" type="button" data-close="dailyReportModal">Cancelar</button><button class="btn btn-primary" type="submit">Copiar corte parcial</button></div>
+  </form>
+ </div>
+</div>
+<div class="modal-backdrop" id="recordModal" hidden>
+ <div class="modal" role="dialog" aria-modal="true" aria-labelledby="recordTitle">
+  <div class="modal-head"><div><h2 id="recordTitle">Nuevo registro</h2><p id="recordFormSubtitle">Elige el producto y captura los datos del trámite.</p></div><button class="close" type="button" data-close="recordModal" aria-label="Cerrar">×</button></div>
+  <form id="recordForm" autocomplete="off"><div class="modal-body">
+   <div class="field-label">Tipo de producto *</div>
+   <div class="product-choice" id="productChoice"><button type="button" data-product="Regular" id="chooseRegular">Regular</button><button type="button" data-product="Garantizada" id="chooseGarantizada">Garantizada</button></div>
+   <div class="product-picked" id="productPicked" hidden><span id="productPickedText" aria-live="polite"></span><button type="button" id="changeProduct" class="btn btn-sm">Cambiar tipo</button></div>
+   <div class="form-fields" id="formFields" hidden>
+    <div class="divider"></div>
+    <div id="promoterSelector" class="form-group"><span class="field-label" id="promoterLabel">Ejecutivo responsable</span><input type="hidden" id="recordPromoter"><div id="promoterButtons" class="promoter-button-grid" role="group" aria-labelledby="promoterLabel"></div><div class="hint" id="promoterHint">Selecciona un promotor configurado en Ajustes.</div></div>
+    <div class="fixed-promoter" id="fixedPromoter" hidden><small>Ejecutivo asignado a este dispositivo</small><strong id="fixedPromoterName"></strong></div>
+    <div class="divider"></div>
+    <div class="field-label">Planes e indicadores</div>
+    <div class="toggle-grid" id="toggles">
+     <button type="button" class="toggle-btn" data-flag="dental" aria-pressed="false">Plan dental</button>
+     <button type="button" class="toggle-btn" data-flag="cero" aria-pressed="false">Plan cero</button>
+     <button type="button" class="toggle-btn only-edit" data-flag="app" aria-pressed="false" hidden>Activación por app</button>
+     <button type="button" class="toggle-btn only-edit" data-flag="dynamic" aria-pressed="false" hidden>Dinámica</button>
+     <button type="button" class="toggle-btn alert only-edit" data-flag="incident" aria-pressed="false" hidden>Incidencia</button>
+    </div>
+    <div class="hint only-edit" id="incidenceEditHint" style="margin-top:9px" hidden>Si marcas «Incidencia», aparecerá automáticamente en la pestaña Incidencias para comentar y resolver.</div>
+    <div class="divider"></div>
+    <div class="field-label" style="margin-bottom:12px">Folio y código de barras</div>
+    <div class="form-grid">
+     <div class="form-group only-edit" id="dateEditGroup" hidden><label for="recordDate">Fecha de registro *</label><input class="field" type="date" id="recordDate" required></div>
+     <div class="form-group"><label for="recordFolio">Folio *</label><input class="field" type="text" inputmode="numeric" pattern="[0-9]+" id="recordFolio" maxlength="80" placeholder="Folio de solicitud (solo números)" required></div>
+     <div class="form-group" style="grid-column:1/-1"><label for="recordBarcode">Código de barras</label><input class="field" type="text" inputmode="numeric" pattern="[0-9]*" id="recordBarcode" maxlength="5" placeholder="Hasta 5 dígitos (opcional)"><div class="hint">Máximo 5 dígitos. Sin código, contará como trámite y no como venta, según tus ajustes.</div></div>
+    </div>
+    <div class="comment-mini">
+     <label for="recordCommentEnabled"><input type="checkbox" id="recordCommentEnabled"><span>Agregar comentario</span><small>Opcional</small></label>
+     <div id="recordCommentGroup" class="form-group" hidden>
+      <label for="recordComment">Comentario del registro</label>
+      <textarea class="field" id="recordComment" rows="2" maxlength="1200" placeholder="Escribe una observación breve sobre este trámite…"></textarea>
+     </div>
+    </div>
+    <div class="client-temp" id="clientTempFields" hidden>
+      <h3>Datos del cliente para WhatsApp</h3>
+      <p>Obligatorios al crear como promotor. Solo se usan para copiar el mensaje al guardar; no se almacenan en la base ni en los respaldos.</p>
+      <div class="form-group"><label for="clientName">Nombre del cliente *</label><input id="clientName" type="text" class="field" autocomplete="off" maxlength="180" placeholder="Nombre completo"></div>
+      <div class="form-group"><label for="clientPhone">Número de teléfono *</label><input id="clientPhone" type="tel" inputmode="tel" class="field" autocomplete="off" maxlength="35" placeholder="Teléfono del cliente"></div>
+      <div class="form-group"><label for="clientEmail">Correo electrónico *</label><input id="clientEmail" type="email" inputmode="email" class="field" autocomplete="off" maxlength="200" placeholder="correo@ejemplo.com"></div>
+    </div>
+   </div>
+  </div>
+  <div class="modal-footer"><button type="button" class="btn" data-close="recordModal">Cancelar</button><button type="submit" id="saveRecord" class="btn btn-primary" disabled>Guardar registro</button></div></form>
+ </div>
+</div>
+
+<div class="modal-backdrop" id="setupModal" hidden>
+ <div class="modal setup-modal" role="dialog" aria-modal="true" aria-labelledby="setupTitle" aria-describedby="setupSubtitle">
+  <div class="modal-head"><div><h2 id="setupTitle">Configuración inicial</h2><p id="setupSubtitle">Completa estos datos para comenzar a registrar trámites.</p></div></div>
+  <form id="setupForm" autocomplete="off">
+   <div class="modal-body">
+    <p class="setup-intro">Configura el módulo, la denominación de los productos, el prefijo de código de barras y quién utilizará esta copia del dashboard. Si vienes de una versión anterior, tus registros se conservan y solo se completan los nuevos ajustes.</p>
+    <div class="form-group"><label for="setupModule">Nombre del módulo <span class="setup-required">*</span></label><input id="setupModule" class="field" type="text" maxlength="90" placeholder="Ej. Paseo Montejo" required></div>
+    <div class="divider"></div>
+    <div class="form-group"><label for="setupPromoterInput">Ejecutivos / promotores <span class="setup-required">*</span></label>
+     <div class="setup-promoter-row"><input id="setupPromoterInput" class="field" type="text" maxlength="90" placeholder="Nombre del promotor"><button id="setupAddPromoter" class="btn" type="button">Agregar</button></div>
+     <div class="setup-chips" id="setupPromoters"></div>
+     <p class="setup-note" id="setupNote" role="status">Agrega al menos un promotor. Puedes registrar más desde Ajustes.</p>
+    </div>
+    <div class="divider"></div>
+    <div class="form-group"><label for="setupProductPrefix">Productos <span class="setup-required">*</span></label><input id="setupProductPrefix" class="field" type="text" maxlength="90" autocomplete="off" placeholder="Ej. Tarjeta INVEX" required><div class="hint">Texto que se mostrará antes de Regular o Garantizada. Ejemplo: «Tarjeta INVEX Regular». No modifica el tipo de producto guardado.</div></div>
+    <div class="divider"></div>
+    <div class="form-group"><label for="setupBarcodePrefix">Prefijo del código de barras <span class="setup-required">*</span></label><input id="setupBarcodePrefix" class="field" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="30" autocomplete="off" placeholder="Ej. 750" required><div class="hint">Solo dígitos y sin separadores. El prefijo se antepone al código en reportes y textos copiados; los 5 dígitos capturados se guardan sin prefijo.</div></div>
+    <div class="divider"></div>
+    <div class="form-group"><span class="field-label">¿Quién utilizará este dashboard? <span class="setup-required">*</span></span><div class="profile-role-buttons" id="setupRoleButtons" role="group" aria-label="Modo de uso"><button type="button" data-setup-role="supervisor" aria-pressed="false">Supervisor</button><button type="button" data-setup-role="promotor" aria-pressed="false">Promotor</button></div></div>
+    <div class="form-group profile-assignment" id="setupAssignedWrap" hidden><label for="setupAssignedPromoter">Promotor que utilizará esta copia <span class="setup-required">*</span></label><select class="field" id="setupAssignedPromoter"><option value="">Selecciona el promotor</option></select><div class="hint">Este promotor quedará asignado automáticamente a los nuevos registros.</div></div>
+   </div>
+   <div class="modal-footer"><button type="submit" id="setupSave" class="btn btn-primary">Guardar y comenzar</button></div>
+  </form>
+ </div>
+</div>
+
+<div class="modal-backdrop" id="recordDetailModal" hidden>
+ <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="recordDetailTitle">
+  <div class="modal-head"><div><h2 id="recordDetailTitle">Detalle del trámite</h2><p>Consulta los datos y elige una acción para este folio.</p></div><button class="close" type="button" data-close="recordDetailModal" aria-label="Cerrar detalle">×</button></div>
+  <div class="modal-body"><div id="recordDetailGrid" class="incident-detail-grid"></div><p class="incident-note">Los cambios se guardan en este dispositivo. Para compartir la ficha, pulsa «Copiar datos» y se copiarán de inmediato al portapapeles.</p></div>
+  <div class="modal-footer record-detail-actions"><button class="btn btn-primary" type="button" id="detailCopy">Copiar datos</button><div class="record-action-group"><button class="btn" type="button" id="detailEdit">Editar</button><button class="btn" type="button" id="detailIncident">Incidencia</button><button class="btn btn-danger" type="button" id="detailDelete">Eliminar</button></div></div>
+ </div>
+</div>
+<div class="modal-backdrop" id="settingsModal" hidden><div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-head"><div><h2 id="settingsTitle">Ajustes</h2><p>Personaliza el módulo y controla tu información.</p></div><button class="close" data-close="settingsModal" aria-label="Cerrar">×</button></div><div class="modal-body"><div class="setting-section"><h3>Identificación del módulo</h3><div class="form-group"><label for="settingsModule">Nombre del módulo</label><input id="settingsModule" class="field" maxlength="90" placeholder="Ej. Sam's Paseo Montejo"></div></div><div class="divider"></div><div class="setting-section"><h3>Catálogo de promotores</h3><p>Solo estos nombres se muestran como botones durante la captura. No hay opción «Sin especificar».</p><div class="inline-form"><input class="field" id="promoterInput" maxlength="90" placeholder="Nombre del promotor"><button class="btn btn-primary" id="addPromoter">Agregar</button></div><div class="chips" id="promoterChips"></div></div><div class="divider"></div><div class="setting-section"><h3>Perfil de uso y productos</h3><div class="form-group"><label for="settingsProductPrefix">Productos *</label><input class="field" id="settingsProductPrefix" type="text" maxlength="90" autocomplete="off" placeholder="Ej. Tarjeta INVEX"><div class="hint">Se antepone a Regular o Garantizada en fichas, textos copiados y reportes. No cambia los valores almacenados.</div></div><div class="form-group" style="margin-top:12px"><label for="settingsBarcodePrefix">Prefijo del código de barras *</label><input class="field" id="settingsBarcodePrefix" inputmode="numeric" pattern="[0-9]+" maxlength="30" autocomplete="off" placeholder="Solo dígitos"></div><p class="mode-summary">Se añade sin separadores en las fichas copiadas y reportes. La base conserva el código original sin prefijo.</p><div class="form-group" style="margin-top:12px"><label for="settingsRole">Modo de uso</label><select class="field" id="settingsRole"><option value="supervisor">Supervisor</option><option value="promotor">Promotor</option></select></div><div id="settingsAssignedWrap" class="form-group profile-assignment" hidden><label for="settingsAssignedPromoter">Promotor asignado a esta copia</label><select class="field" id="settingsAssignedPromoter"><option value="">Selecciona el promotor</option></select></div></div><div class="divider"></div><div class="setting-section"><h3>Reglas del dashboard</h3><label class="check-row"><input id="settingsBarcode" type="checkbox" checked><span><strong>Solo contar como venta los registros con código de barras.</strong><br><small>Desactivado: todo registro Regular o Garantizada contará como venta.</small></span></label><label class="check-row"><input id="settingsValidMetrics" type="checkbox" checked><span><strong>Contar planes, activaciones, dinámica e incidencias solo en ventas.</strong><br><small>Desactivado: se cuentan los indicadores de todos los trámites.</small></span></label><label class="check-row"><input id="settingsUnique" type="checkbox" checked><span><strong>Impedir folios duplicados.</strong><br><small>Evita capturar por accidente el mismo folio dos veces.</small></span></label></div><div class="divider"></div><div class="setting-section"><h3>Respaldo y administración</h3><div class="manage-grid"><button class="btn" id="settingsJSON">Exportar respaldo JSON</button><button class="btn" id="settingsCSV">Exportar datos CSV</button><button class="btn" id="settingsImport">Importar base JSON/CSV</button><button class="btn btn-danger" id="clearAll">Borrar todos los registros</button></div><p>Respaldo JSON incluye registros, incidencias y configuraciones, pero jamás datos personales temporales de clientes. El CSV de registros y el de incidencias se importan por separado. Los archivos no se suben a ningún servidor.</p><div class="notice"><strong>Almacenamiento local:</strong> la información permanece en este navegador y dispositivo, incluso después de cerrar la página, salvo que elimines los datos del sitio, uses modo privado o cambies de navegador. Para migrar a otro dispositivo, exporta un respaldo JSON e impórtalo allá.</div></div></div><div class="modal-footer"><button class="btn" data-close="settingsModal">Cerrar</button><button class="btn btn-primary" id="saveSettings">Guardar ajustes</button></div></div></div>
+<div class="modal-backdrop" id="importModal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="importTitle"><div class="modal-head"><div><h2 id="importTitle">Importar base</h2><p>Restaura respaldos JSON o importa registros e incidencias desde CSV.</p></div><button class="close" data-close="importModal" aria-label="Cerrar">×</button></div><div class="modal-body import-controls"><div class="form-group"><label for="importFile">Seleccionar archivo</label><input class="field" id="importFile" type="file" accept=".json,.csv,application/json,text/csv"></div><div class="form-group"><label for="importMode">Modo de importación</label><select class="field" id="importMode"><option value="merge">Combinar: agregar nuevos y omitir repetidos</option><option value="upsert">Actualizar por folio y agregar nuevos</option><option value="replace">Restaurar: reemplazar datos incluidos en el archivo</option></select></div><label class="check-row"><input type="checkbox" id="importSettings" checked><span>Importar también módulo, promotores y reglas (solo archivos JSON).</span></label><div class="notice" id="importInfo" role="status" aria-live="polite" style="white-space:pre-line">Selecciona un respaldo JSON o CSV para revisar qué contiene, sin modificar tus datos.</div></div><div class="modal-footer"><button class="btn" data-close="importModal">Cancelar</button><button class="btn btn-primary" id="runImport" disabled>Importar datos</button></div></div></div>
+
+<div class="modal-backdrop" id="helpModal" hidden>
+ <div class="modal wide help-dialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle" aria-describedby="helpSubtitle">
+  <div class="modal-head"><div><h2 id="helpTitle">Manual de uso</h2><p id="helpSubtitle">Registros · Guía práctica de funciones</p></div><button class="close" type="button" data-close="helpModal" aria-label="Cerrar manual">×</button></div>
+  <div class="modal-body help-body">
+   <div class="help-intro"><strong>Control operativo, de principio a fin.</strong><p>Utiliza esta guía para configurar el módulo, capturar trámites, documentar incidencias, revisar resultados, compartir reportes y proteger la información guardada en tu dispositivo.</p></div>
+   <div class="help-steps" aria-label="Inicio rápido"><div><span>01</span><strong>Configura</strong><small>Módulo, productos, prefijo y perfil</small></div><div><span>02</span><strong>Registra</strong><small>Trámites y ventas</small></div><div><span>03</span><strong>Consulta</strong><small>Dashboard e incidencias</small></div><div><span>04</span><strong>Respalda</strong><small>Exporta JSON</small></div></div>
+   <p class="help-heading">Instrucciones y funciones <span>Selecciona un apartado para expandirlo</span></p>
+   <div class="help-sections">
+    <details open><summary><span class="help-index">01</span><span>Primeros pasos<small>Preparar el módulo antes de capturar</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><ol><li>Al abrir el dashboard, si falta un módulo, un promotor, el texto de Productos, el prefijo o el perfil de uso, aparecerá automáticamente <strong>Configuración inicial</strong>.</li><li>Escribe el <strong>nombre del módulo</strong>, agrega <strong>al menos un promotor</strong>, indica el texto de <strong>Productos</strong> (ej. Tarjeta INVEX) y captura el <strong>prefijo numérico</strong> del código de barras y elige <strong>Supervisor</strong> o <strong>Promotor</strong>.</li><li>Si eliges <strong>Promotor</strong>, selecciona cuál de los nombres configurados usará este dispositivo. Pulsa <strong>Guardar y comenzar</strong>. Los ajustes quedan guardados localmente.</li><li>Una vez configurado, puedes editar el módulo, añadir o quitar promotores y revisar reglas desde <strong>Opciones → Ajustes</strong>, siempre conservando al menos un promotor.</li><li>Pulsa el botón flotante <strong>+ Nuevo registro</strong> para comenzar.</li></ol><p class="help-tip">El prefijo se añade directamente antes del código de barras, sin guiones ni espacios, al copiar fichas o generar reportes. La base conserva los cinco dígitos capturados para que un cambio de prefijo no altere datos históricos.</p></div></details>
+    <details><summary><span class="help-index">02</span><span>Capturar y guardar un registro<small>Primero ejecutivo, después planes y al final folio y código</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><ol><li>Pulsa <strong>+ Nuevo registro</strong> y elige <strong>Regular</strong> o <strong>Garantizada</strong>. Los botones se ocultan después de elegir; utiliza <strong>Cambiar tipo</strong> si necesitas corregirlo.</li><li><strong>Primero, ejecutivo:</strong> en modo Supervisor, selecciona al responsable tocando el botón con su nombre. En modo Promotor, el ejecutivo se asigna automáticamente desde Configuración inicial y no hay que elegirlo de nuevo.</li><li><strong>Después, planes:</strong> activa o desactiva los botones de <strong>Plan Dental</strong> y <strong>Plan Cero</strong>. El botón resaltado indica que está seleccionado.</li><li><strong>Por último, datos numéricos:</strong> escribe el <strong>folio</strong> obligatorio y, si corresponde, el <strong>código de barras</strong> de hasta <strong>5 dígitos</strong>. Ambos solicitan teclado numérico en el teléfono y conservan los ceros iniciales.</li><li>Si necesitas agregar una observación, activa la pequeña casilla <strong>Agregar comentario</strong> al final del formulario. Se abrirá un campo opcional de texto (hasta 1200 caracteres); de lo contrario, el formulario permanece compacto.</li><li>En modo <strong>Promotor</strong>, antes de guardar debes escribir <strong>nombre, teléfono y correo electrónico</strong> del cliente. Estos tres datos son temporales y obligatorios en nuevas capturas; no se guardan en la base, el historial ni en exportaciones. En modo Supervisor no se muestran.</li><li>Pulsa <strong>Guardar registro</strong>. El dashboard y las tablas se actualizan automáticamente. En modo Promotor, se intenta copiar al portapapeles el mensaje completo (cliente y trámite) para pegarlo en WhatsApp. La fecha se asigna automáticamente.</li></ol><p class="help-tip"><strong>Durante la edición:</strong> puedes consultar, modificar o quitar el comentario desde la misma casilla. El formulario mantiene el mismo orden. También aparecen Fecha de registro, Activación por app, Dinámica e Incidencia. Al guardar cambios reales, la ficha actualizada y los campos modificados se copian automáticamente al portapapeles.</p></div></details>
+    <details><summary><span class="help-index">03</span><span>Consultar el dashboard<small>Totales, gráfica e indicadores</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><p>En <strong>Dashboard</strong> puedes alternar entre <strong>Hoy, Semana y Todo</strong> para consultar trámites, ventas, regulares, garantizadas, planes, activaciones y dinámicas.</p><ul><li><strong>Trámites:</strong> todos los registros del periodo.</li><li><strong>Ventas:</strong> por defecto, registros que sí tienen código de barras.</li><li><strong>Regulares/Garantizadas:</strong> ventas separadas según el tipo elegido.</li><li><strong>Planes, app, dinámica e incidencias:</strong> se cuentan por los botones activados; por defecto, solo en ventas.</li><li><strong>Gráfica:</strong> distribución de ventas de lunes a domingo de la semana en curso.</li></ul><p class="help-tip">La semana operativa empieza el lunes y termina el domingo. Las reglas se pueden cambiar en Ajustes y afectan los totales mostrados.</p></div></details>
+    <details><summary><span class="help-index">04</span><span>Consultar, editar y eliminar<small>Administración de registros</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><p>Abre la pestaña <strong>Registros</strong> para ver la base almacenada en este navegador.</p><ul><li>Busca por folio, código de barras, fecha, tipo, nombre del promotor o texto del comentario.</li><li>Filtra por <strong>Hoy</strong>, <strong>Esta semana</strong> o <strong>Todas las fechas</strong>, y también por tipo de producto.</li><li><strong>Toca cualquier fila</strong> de la tabla de Registros o Últimos registros del dashboard. Se abrirá una ficha con todos los datos del trámite, incluido su comentario cuando tenga.</li><li>Dentro de la ficha, pulsa <strong>Editar</strong> para corregirlo (ahí aparecen fecha, activación por app, dinámica e incidencia) o <strong>Eliminar</strong> para borrarlo con confirmación. <strong>Al guardar una edición real</strong>, se copia automáticamente al portapapeles la ficha actualizada y una solicitud que comienza «Por favor solicitó cambio en», seguida de los nombres de los campos modificados. No necesitas pulsar «Copiar datos».</li><li>Pulsa <strong>Incidencia</strong> para consultar su seguimiento. Si no estaba marcada, confirma que quieres crearla: se vinculará al trámite y se abrirá el formulario de comentario y resolución.</li><li>Pulsa <strong>Copiar datos</strong> para copiar directamente la ficha completa al portapapeles sin abrir otra ventana.</li></ul><p class="help-tip">La ficha también funciona desde las filas de «Últimos registros». Eliminar es permanente y pide confirmación. Exporta un respaldo antes de hacer cambios masivos.</p></div></details>
+    <details><summary><span class="help-index">05</span><span>Copiar y exportar reportes<small>Portapapeles, PNG y PDF</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><p>Abre el botón flotante <strong>⇧ Exportación</strong> para copiar informes al portapapeles o descargar archivos. Los accesos de copia están agrupados al inicio del menú y no abren un editor de texto.</p><ul><li><strong>C- Avance y acumulado:</strong> copia automáticamente un texto compacto con el módulo, la denominación de Productos, los trámites, ventas, regulares, garantizadas, Plan Dental, Plan Cero y dinámicas del <strong>día</strong> y de la <strong>semana</strong>. El texto no agrega el encabezado «Registros» y deja una línea en blanco después de cada título para facilitar la lectura.</li><li><strong>Prefijo:</strong> en fichas, incidencias, vista previa y detalle del PDF, el código se presenta con el prefijo numérico configurado. Los CSV de registros e incidencias incluyen las columnas adicionales «Código completo (reporte)» y «Producto completo (reporte)», sin alterar la columna original usada para restaurar datos.</li><li><strong>Formato del texto copiado:</strong> el nombre del módulo aparece como título, seguido de una línea vacía y de los datos. El valor de «Productos» va antes de «Regular» o «Garantizada». Dinámica e Incidencia solo aparecen cuando están marcadas; Comentario solo cuando tiene texto. En modo Promotor, se anteponen los datos temporales del cliente debajo del título.</li><li><strong>Copiar datos</strong> desde la ficha de un trámite copia sus campos y el comentario del registro; desde una incidencia copia los datos y el comentario visible en pantalla. No hace falta seleccionar el texto. Cuando editas y guardas un trámite, se copia automáticamente una solicitud con los campos que cambiaron; si no realizaste cambios, no se genera una solicitud.</li><li><strong>Exportar dashboard PNG:</strong> crea una imagen de alta resolución (3000 × 3882 píxeles) con los acumulados y la evolución semanal.</li><li><strong>Exportar reporte PDF:</strong> genera un documento tamaño carta con el resumen y, cuando existen registros, páginas de detalle de la semana en curso.</li></ul><p class="help-tip">Las exportaciones usan el corte de hoy y la semana actual, aunque tengas otro filtro seleccionado. Para pegar datos de cliente en WhatsApp, usa la copia automática al crear el registro como Promotor: al no almacenarse, no podrán recuperarse desde una ficha histórica.</p></div></details>
+    <details><summary><span class="help-index">06</span><span>Respaldos e importación segura<small>Recuperar registros e incidencias sin perder información</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><ol><li>Antes de importar, guarda una copia desde <strong>⇧ Exportación → Respaldar base JSON</strong>. El respaldo contiene todos los registros, las incidencias y los ajustes.</li><li>Elige <strong>Opciones → Importar base</strong> y selecciona un archivo <strong>JSON o CSV</strong>. Se admiten respaldos JSON de las versiones 1.3, 1.4 y 1.5, CSV de registros y CSV de incidencias.</li><li>El sistema mostrará una vista previa con las filas encontradas y las coincidencias con la base local. <strong>No cambia nada hasta que pulses Importar datos.</strong></li><li>Elige <strong>Combinar</strong> para agregar únicamente datos nuevos; los folios repetidos se omiten.</li><li>Elige <strong>Actualizar por folio</strong> cuando ya tengas un folio registrado y quieras recuperar sus valores desde el archivo. Los expedientes también se actualizan cuando coinciden.</li><li>Elige <strong>Restaurar</strong> para reemplazar únicamente los conjuntos presentes en el archivo. Por ejemplo, un CSV de incidencias no borra los registros de ventas. Se pedirá confirmación.</li><li>Si el JSON incluye ajustes, puedes decidir si importas también el nombre del módulo, Productos, prefijo, modo de uso, promotor asignado y reglas. Si faltan datos de configuración, aparecerá la pantalla de inicio para completarlos. Los comentarios también se respaldan en JSON y en las nuevas exportaciones CSV. Los datos personales temporales del cliente nunca se incluyen.</li></ol><p class="help-tip">Si Combinar indica que no hay datos nuevos, no significa que el respaldo esté dañado: los folios ya existen. Usa Actualizar o Restaurar. Para migrar desde V1.3, primero exporta allí un respaldo JSON, cierra esa pestaña y luego importa el archivo aquí. Si no se ven filas nuevas al combinar, revisa las coincidencias de folio y prueba «Actualizar por folio». Guarda el JSON original hasta comprobar los totales y expedientes importados.</p></div></details>
+    <details><summary><span class="help-index">07</span><span>Ajustes y seguridad de datos<small>Personalización y almacenamiento local</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><p>En <strong>Ajustes</strong> puedes modificar el módulo, Productos, prefijo, tipo de usuario, promotor fijo en modo Promotor, catálogo de promotores (debe quedar al menos uno), reglas de ventas e indicadores y bloqueo de folios duplicados.</p><p><strong>Productos:</strong> establece el texto que acompaña a los tipos de producto en fichas y reportes (por ejemplo, «Tarjeta INVEX Garantizada»). El tipo que se guarda en la base sigue siendo «Regular» o «Garantizada», por lo que los indicadores y la importación no cambian.</p><p><strong>Privacidad de datos del cliente:</strong> el nombre, teléfono y correo introducidos en modo Promotor no se incorporan a registros, incidencias, búsquedas, JSON ni CSV. Solo permanecen en el formulario mientras capturas y se utilizan para el texto copiado. Al cerrar o guardar se limpian. El texto del portapapeles sí puede ser leído por la aplicación donde lo pegues.</p><p><strong>¿Dónde se guardan los datos?</strong> En el almacenamiento local de este navegador y dispositivo. No se envían a un servidor y la aplicación puede funcionar sin conexión. Esta versión conserva la base de registros V1.3 sin obligarla a actualizar su estructura; las incidencias se guardan de forma compatible.</p><p><strong>¿Puedo verlo en otro dispositivo?</strong> No se sincroniza automáticamente. Puedes exportar un respaldo JSON e importarlo en el otro dispositivo.</p><p><strong>¿Cuándo podrían perderse?</strong> Al borrar datos del sitio o del navegador, usar navegación privada, cambiar de navegador o perder el dispositivo. Es recomendable respaldar periódicamente.</p><p class="help-tip">“Borrar todos los registros” elimina los trámites, pero conserva los seguimientos históricos que ya se hayan guardado. Para conservar todos los vínculos y antecedentes, exporta un respaldo JSON antes de borrar información.</p></div></details>
+
+     <details><summary><span class="help-index">08</span><span>Menú flotante de exportación y reportes<small>Copia directa, corte parcial, folios y descargas</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><ol><li>En la parte inferior derecha encontrarás <strong>⇧ Exportación</strong>, arriba de <strong>+ Nuevo registro</strong>. Al tocarlo se abre un menú con los comandos de copia y los formatos descargables; no es necesario entrar a Ajustes.</li><li><strong>C- Avance y acumulado:</strong> copia directamente los indicadores del día y de la semana, sin abrir un formulario.</li><li><strong>C- Corte Parcial:</strong> abre una ventana para elegir al ejecutivo rezagado (la lista muestra también a quienes no han vendido) y escribir la acción. Al pulsar <strong>Copiar corte parcial</strong>, se copia el informe de hoy listo para WhatsApp. Muestra la fecha y el total de ventas entre asteriscos; después los cuatro indicadores, el título «*Ventas...*» en negritas para WhatsApp, y a todos los promotores que vendieron en un solo renglón, con formato <strong>*Nombre*: xN</strong>. Finalmente incluye al ejecutivo elegido y la acción en una sola línea. La selección, el comentario y el reporte no se guardan.</li><li><strong>C- Folios semanales:</strong> copia al instante los folios con código de barras, agrupados de lunes a domingo. Incluye los siete días, aun cuando alguno no tenga folios.</li><li>Cada folio muestra <strong>Incidencia</strong> si corresponde y <strong>Solicitud de actualización</strong> solo cuando fue generada por editar un registro con cambios reales. Si cumple las dos condiciones, aparecerán ambas etiquetas.</li><li>En el mismo menú puedes <strong>exportar dashboard PNG</strong>, <strong>reporte PDF</strong>, <strong>tabla CSV</strong> o <strong>respaldar base JSON</strong>. Para <strong>importar</strong> un respaldo o modificar el módulo, utiliza <strong>Opciones</strong> en la parte superior.</li></ol><p class="help-tip">Los tres comandos que empiezan con C- copian el texto al portapapeles automáticamente. El corte parcial usa el día actual de Mérida; el reporte semanal exige código de barras y no modifica registros existentes. Las marcas de solicitudes anteriores a V2.7 no se pueden reconstruir sin evidencia previa.</p></div></details>
+     <details><summary><span class="help-index">09</span><span>Gestión de incidencias<small>Consulta, comentario, resolución y copia</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><ol><li>Captura primero el trámite con su promotor. Después abre su ficha desde la tabla, pulsa <strong>Editar</strong> y activa el botón <strong>Incidencia</strong>; también puedes usar directamente <strong>Incidencia</strong> desde la ficha.</li><li>Abre la pestaña <strong>Incidencias</strong>. El caso aparecerá automáticamente con la <strong>fecha, folio, producto y promotor</strong> tomados del registro, sin volver a capturarlos.</li><li><strong>Toca cualquier fila</strong> de Incidencias para abrir su ficha. También puedes entrar desde una ficha de trámite con el botón <strong>Incidencia</strong>. Ahí podrás consultar el código de barras, los planes, la activación por app y los demás datos originales.</li><li>Escribe en <strong>Comentario de seguimiento</strong> cómo se está resolviendo la incidencia y qué acciones se han realizado.</li><li>Marca <strong>Se pudo resolver esta incidencia</strong> únicamente cuando esté resuelta, y pulsa <strong>Guardar seguimiento</strong>. Si no está marcada, el caso permanece sin resolver.</li><li>Pulsa <strong>Copiar datos</strong> dentro de la ficha para llevar al portapapeles todos los datos y el comentario, incluso antes de guardarlo.</li><li>Filtra los casos por resolución o fecha, o exporta el listado a <strong>CSV / PDF</strong>. El respaldo JSON incluye los comentarios y estados guardados.</li></ol><p class="help-tip">Los expedientes creados en versiones anteriores se conservan. Cuando el folio existe en Registros, la ficha da prioridad a la fecha y promotor del registro original. Si el registro ya no existe, se muestran los datos históricos guardados en el expediente.</p></div></details>
+   </div>
+    <details><summary><span class="help-index">10</span><span>Solución de errores de base local<small>Qué hacer si el navegador bloquea IndexedDB</small></span><span class="help-chevron" aria-hidden="true"></span></summary><div class="help-detail"><p>Si el navegador no responde o mantiene bloqueada la base original, la app activa <strong>almacenamiento alternativo</strong> y muestra un aviso arriba. Así puedes seguir capturando y restaurando respaldos sin esperar indefinidamente.</p><ol><li>Antes de cambiar de versión, exporta <strong>⇧ Exportación → Respaldar base JSON</strong>.</li><li>Si no aparecen registros antiguos, <strong>no borres el almacenamiento del navegador</strong>. Es posible que permanezcan en la base original. Cierra pestañas antiguas e importa el JSON de V1.3 para recuperarlos.</li><li>Los registros capturados en modo alternativo se guardan en el mismo navegador y se intentarán integrar automáticamente con la base original cuando pueda abrirse.</li><li>Para evitar incompatibilidades, usa un solo archivo de esta versión y conserva respaldos frecuentes.</li></ol><p class="help-tip">Si el navegador bloquea tanto IndexedDB como localStorage, se mostrará un error explícito y no se afirmará que el registro se guardó.</p></div></details>
+  </div>
+  <div class="modal-footer help-footer"><button type="button" class="btn" data-close="helpModal">Cerrar manual</button><button type="button" class="btn" id="helpSettings">Ir a ajustes</button><button type="button" class="btn btn-primary" id="helpNew">Nuevo registro</button></div>
+ </div>
+</div>
+
+
+<div class="modal-backdrop" id="incidentModal" hidden>
+  <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="incidentTitle">
+    <div class="modal-head"><div><h2 id="incidentTitle">Detalle de incidencia</h2><p>Información vinculada al registro y seguimiento administrativo.</p></div><button class="close" type="button" data-close="incidentModal" aria-label="Cerrar detalle">×</button></div>
+    <form id="incidentForm" autocomplete="off"><div class="modal-body">
+      <div id="incidentDetail" class="incident-detail-grid"></div>
+      <div id="incidentLegacyDetail" class="notice" hidden></div>
+      <div class="form-group"><label for="incidentComment">Comentario de seguimiento</label><textarea id="incidentComment" class="field" rows="4" maxlength="2500" placeholder="Describe cómo se está atendiendo la incidencia, qué acciones se realizaron o qué queda pendiente."></textarea></div>
+      <label class="incident-switch"><input id="incidentResolved" type="checkbox"> <span>Se pudo resolver esta incidencia</span></label>
+      <p class="incident-note">Si marcas la casilla, aparecerá como «Resuelta». De lo contrario permanecerá «Sin resolver». Guarda para conservar el seguimiento en este dispositivo.</p>
+    </div><div class="modal-footer"><button class="btn" type="button" data-close="incidentModal">Cerrar</button><button class="btn" type="button" id="copyIncidentDetail">Copiar datos</button><button class="btn btn-primary" id="saveIncident" type="submit">Guardar seguimiento</button></div></form>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+(()=>{'use strict';
+const APP='REGISTROS_LOCAL_V1', DBNAME='registros-dashboard-cache-v1',STORE='entries',INCSTORE='incidences',INC_FALLBACK_KEY='registros-dashboard-incidences-v1',INC_DBNAME='registros-dashboard-incidences-dedicated-v1',SETTINGS_KEY='registros-dashboard-settings-v1',FALLBACK_KEY='registros-dashboard-records-v1',REC_PENDING_KEY='registros-dashboard-merge-records-v17',INC_PENDING_KEY='registros-dashboard-merge-incidences-v17',TZ='America/Merida';
+const DEFAULT={module:'Módulo sin configurar',promoters:[],requireBarcode:true,metricsOnlySales:true,uniqueFolios:true,barcodePrefix:'',productPrefix:'',usageRole:'',assignedPromoter:''};
+const $=id=>document.getElementById(id);
+let db=null,incdb=null,incFallback=false,fallback=false,storageReady=false,incidentReady=false,storageProblem='',recordInitPromise=null,records=[],settings={...DEFAULT},page='dashboard',period='week',pageNumber=1,incPageNumber=1,incidences=[],editingIncId=null,editingId=null,selectedProduct='',formFlags={},incoming=null,toastTimer=null,draftPromoters=[],setupPromoters=[],setupRole='';
+const FLAG_KEYS=['dental','cero','app','dynamic','incident'];
+const z=n=>String(n).padStart(2,'0');
+function todayKey(){const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));return `${p.year}-${p.month}-${p.day}`}
+function addDays(key,days){const d=new Date(`${key}T12:00:00Z`);d.setUTCDate(d.getUTCDate()+days);return d.toISOString().slice(0,10)}
+function monday(key){const dow=new Date(key+'T12:00:00Z').getUTCDay();return addDays(key,-((dow+6)%7))}
+function humanDate(key){if(!key)return '—';const [y,m,d]=key.slice(0,10).split('-');return `${d}/${m}/${y}`}
+function textDate(key){const d=new Date(key+'T12:00:00Z');return d.toLocaleDateString('es-MX',{timeZone:'UTC',day:'numeric',month:'long',year:'numeric'})}
+function clean(s){return String(s??'').trim()}
+function shownBarcode(code){
+ const raw=clean(code),prefix=clean(settings.barcodePrefix);
+ if(!raw)return '';
+ // Los códigos históricos ya completos no deben duplicar su prefijo.
+ if(raw.length>5&&prefix&&raw.startsWith(prefix))return raw;
+ return /^\d+$/.test(prefix)?prefix+raw:raw;
+}
+function shownProduct(type){
+ const prefix=clean(settings.productPrefix),name=normalizedType(type);
+ return prefix?`${prefix} ${name}`:name;
+}
+function isPromoterMode(){return settings.usageRole==='promotor'}
+function clientMessage(row,client){
+ return `${settings.module}\n\nNombre: ${client.name}\nTeléfono: ${client.phone}\nCorreo electrónico: ${client.email}\n${recordLines(row)}`;
+}
+function wipeClientFields(){for(const k of ['clientName','clientPhone','clientEmail']){const el=$(k);if(el)el.value=''}}
+
+function html(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function bool(v){if(typeof v==='boolean')return v;if(typeof v==='number')return v!==0;return ['si','sí','true','1','yes','x','✓','activo','activado'].includes(clean(v).toLowerCase())}
+function id(){return (globalThis.crypto?.randomUUID?.()||`id-${Date.now()}-${Math.random().toString(36).slice(2)}`)}
+function filename(s){return clean(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,50)||'modulo'}
+function alertToast(s){const el=$('toast');el.textContent=s;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,3200)}
+function loadSettings(){try{const x=JSON.parse(localStorage.getItem(SETTINGS_KEY)||'{}');settings={...DEFAULT,...x,promoters:Array.isArray(x.promoters)?x.promoters.filter(v=>typeof v==='string'):[]}}catch{settings={...DEFAULT}}}
+function storeSettings(){localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings))}
+function setupMissing(){
+ return !clean(settings.module)||clean(settings.module)===DEFAULT.module||!Array.isArray(settings.promoters)||!settings.promoters.some(x=>!!clean(x))||!/^\d+$/.test(clean(settings.barcodePrefix))||!clean(settings.productPrefix)||!['supervisor','promotor'].includes(settings.usageRole)||(settings.usageRole==='promotor'&&!settings.promoters.includes(settings.assignedPromoter));
+}
+function setSetupRole(role){
+ setupRole=role;
+ document.querySelectorAll('[data-setup-role]').forEach(b=>{const selected=b.dataset.setupRole===role;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected))});
+ $('setupAssignedWrap').hidden=role!=='promotor';
+}
+function drawSetupAssignee(preferred=''){
+ const selected=preferred||$('setupAssignedPromoter').value;
+ $('setupAssignedPromoter').innerHTML='<option value="">Selecciona el promotor</option>'+setupPromoters.map(n=>`<option value="${html(n)}">${html(n)}</option>`).join('');
+ $('setupAssignedPromoter').value=setupPromoters.includes(selected)?selected:'';
+}
+
+function drawSetupPromoters(){
+ $('setupPromoters').innerHTML=setupPromoters.map((n,i)=>`<span class="setup-chip">${html(n)}<button type="button" aria-label="Quitar ${html(n)}" data-setup-remove="${i}">×</button></span>`).join('');
+ $('setupNote').textContent=setupPromoters.length?`${setupPromoters.length} promotor(es) agregado(s).`:'Agrega al menos un promotor para continuar.';
+ $('setupNote').classList.remove('error');
+ drawSetupAssignee();
+}
+function openInitialSetup(){
+ if(!setupMissing()){if(!$('setupModal').hidden)modalClose('setupModal');return false}
+ setupPromoters=Array.isArray(settings.promoters)?[...new Set(settings.promoters.map(clean).filter(Boolean))]:[];
+ $('setupModule').value=clean(settings.module)===DEFAULT.module?'':clean(settings.module);
+ $('setupPromoterInput').value='';drawSetupPromoters();
+ $('setupBarcodePrefix').value=clean(settings.barcodePrefix);
+ $('setupProductPrefix').value=clean(settings.productPrefix);
+ setSetupRole(['supervisor','promotor'].includes(settings.usageRole)?settings.usageRole:'');
+ drawSetupAssignee(settings.assignedPromoter);
+ if($('setupModal').hidden)modalOpen('setupModal');
+ return true;
+}
+function addInitialPromoter(){
+ const name=clean($('setupPromoterInput').value);
+ if(!name)return false;
+ if(setupPromoters.some(n=>n.toLocaleLowerCase('es')===name.toLocaleLowerCase('es'))){
+  $('setupNote').textContent='Este promotor ya está agregado.';$('setupNote').classList.add('error');return false;
+ }
+ setupPromoters.push(name);$('setupPromoterInput').value='';drawSetupPromoters();return true;
+}
+function saveInitialSetup(e){
+ e.preventDefault();
+ const typed=clean($('setupPromoterInput').value);
+ if(typed&&!setupPromoters.some(n=>n.toLocaleLowerCase('es')===typed.toLocaleLowerCase('es')))addInitialPromoter();
+ const module=clean($('setupModule').value),barcodePrefix=clean($('setupBarcodePrefix').value),productPrefix=clean($('setupProductPrefix').value),assignedPromoter=$('setupAssignedPromoter').value;
+ if(!module||module===DEFAULT.module||!setupPromoters.length||!/^\d+$/.test(barcodePrefix)||!productPrefix||!['supervisor','promotor'].includes(setupRole)||(setupRole==='promotor'&&!setupPromoters.includes(assignedPromoter))){
+  $('setupNote').textContent='Completa módulo, promotores, Productos, prefijo numérico y tipo de usuario. Si eliges Promotor, selecciona su nombre.';$('setupNote').classList.add('error');return;
+ }
+ const next={...settings,module,promoters:[...setupPromoters],barcodePrefix,productPrefix,usageRole:setupRole,assignedPromoter:setupRole==='promotor'?assignedPromoter:''};
+ try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(next));settings=next;refresh();modalClose('setupModal');alertToast('Configuración guardada. Ya puedes capturar registros.');}
+ catch(err){$('setupNote').textContent='No se guardó la configuración: '+(err?.message||'revisa los permisos del navegador.');$('setupNote').classList.add('error')}
+}
+const OPEN_LIMIT_MS=1900;
+function warnStorage(message){storageProblem=message;const el=$('storageWarning');el.textContent=message;el.hidden=!message;}
+function testLocalStore(){try{const k='__registros_almacen_test__';localStorage.setItem(k,'1');localStorage.removeItem(k);return true}catch{return false}}
+function fallbackNotice(what){warnStorage(`Almacenamiento alternativo activado (${what}). Puedes capturar e importar respaldos JSON, pero los datos antiguos de IndexedDB podrían no mostrarse hasta que vuelvas a abrir la base original. No borres archivos ni datos del navegador. Haz un respaldo JSON antes de cambiar de versión.`)}
+function pendingGet(key){try{const a=JSON.parse(localStorage.getItem(key)||'{}');return {replace:!!a.replace,deleted:Array.isArray(a.deleted)?a.deleted:[]}}catch{return {replace:false,deleted:[]}}}
+function pendingMark(key,kind,recordId){const state=pendingGet(key);if(kind==='replace'){state.replace=true;state.deleted=[]}else if(kind==='delete'&&recordId){if(!state.deleted.includes(recordId))state.deleted.push(recordId)}else if(kind==='write'&&recordId){state.deleted=state.deleted.filter(x=>x!==recordId)}localStorage.setItem(key,JSON.stringify(state))}
+function openDB(){return new Promise(resolve=>{
+ let settled=false,request=null;
+ const finish=(database,reason)=>{if(settled){if(database)database.close();return}settled=true;clearTimeout(timeout);if(reason){fallback=true;fallbackNotice(reason)}resolve(database)};
+ const timeout=setTimeout(()=>finish(null,'no responde la base de registros'),OPEN_LIMIT_MS);
+ if(!window.indexedDB||typeof indexedDB.open!=='function'){finish(null,'IndexedDB no disponible');return}
+ try{
+  request=indexedDB.open(DBNAME); // Sin aumento de versión para leer bases de V1.3.
+  request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains(STORE))request.result.createObjectStore(STORE,{keyPath:'id'})};
+  request.onsuccess=()=>{
+   const database=request.result;
+   if(!database.objectStoreNames.contains(STORE)){finish(null,'falta la tabla de registros');database.close();return}
+   if(settled){database.close();return}
+   database.onversionchange=()=>{
+    database.close();fallback=true;db=null;
+    if(testLocalStore()){
+     const snapshot=records.map(r=>({...r}));
+     try{localStorage.setItem(FALLBACK_KEY,JSON.stringify(snapshot));pendingMark(REC_PENDING_KEY,'replace');storageReady=true;fallbackNotice('otra pestaña modificó la base de registros')}catch(err){storageReady=false;warnStorage('La base fue modificada desde otra pestaña y no se pudo activar el respaldo local: '+err.message)}
+    }else{storageReady=false;warnStorage('La base cambió desde otra pestaña y el navegador bloqueó el almacenamiento local. Conserva tus respaldos JSON.')}
+   };
+   finish(database);
+  };
+  request.onerror=()=>finish(null,'error al abrir la base de registros: '+(request.error?.message||'desconocido'));
+  request.onblocked=()=>finish(null,'la base está ocupada por otra pestaña o versión');
+ }catch(err){finish(null,'error al abrir IndexedDB: '+err.message)}
+})}
+function openIncDB(){return new Promise(resolve=>{
+ if(fallback){incFallback=true;resolve(null);return}
+ if(db?.objectStoreNames.contains(INCSTORE)){resolve(db);return}
+ let settled=false,req=null;
+ const finish=(database,reason)=>{if(settled){if(database)database.close();return}settled=true;clearTimeout(timeout);if(reason){incFallback=true;fallbackNotice(reason)}resolve(database)};
+ const timeout=setTimeout(()=>finish(null,'no responde la base de incidencias'),OPEN_LIMIT_MS);
+ try{
+  req=indexedDB.open(INC_DBNAME);
+  req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains(INCSTORE))req.result.createObjectStore(INCSTORE,{keyPath:'id'})};
+  req.onsuccess=()=>{
+   const database=req.result;
+   if(!database.objectStoreNames.contains(INCSTORE)){finish(null,'falta la tabla de incidencias');database.close();return}
+   if(settled){database.close();return}
+   database.onversionchange=()=>{
+    database.close();incFallback=true;incdb=null;
+    if(testLocalStore()){
+     try{localStorage.setItem(INC_FALLBACK_KEY,JSON.stringify(incidences));pendingMark(INC_PENDING_KEY,'replace');incidentReady=true;fallbackNotice('otra pestaña modificó la base de incidencias')}catch(err){incidentReady=false;warnStorage('No se pudo habilitar el respaldo local de incidencias: '+err.message)}
+    }else{incidentReady=false;warnStorage('La base de incidencias cambió y el navegador no permite guardado alternativo.')}
+   };
+   finish(database);
+  };
+  req.onerror=()=>finish(null,'error al abrir la base de incidencias: '+(req.error?.message||'desconocido'));
+  req.onblocked=()=>finish(null,'la base de incidencias está ocupada por otra pestaña');
+ }catch(err){finish(null,'error al abrir incidencias: '+err.message)}
+})}
+function fallbackRows(){try{const x=JSON.parse(localStorage.getItem(FALLBACK_KEY)||'[]');return Array.isArray(x)?x:[]}catch{return []}}
+function dbGetAll(){if(fallback)return Promise.resolve(fallbackRows());return new Promise((resolve,reject)=>{const q=db.transaction(STORE,'readonly').objectStore(STORE).getAll();q.onsuccess=()=>resolve(q.result||[]);q.onerror=()=>reject(q.error)})}
+function dbWrite(row){if(fallback){const a=fallbackRows().filter(x=>x.id!==row.id);a.push(row);localStorage.setItem(FALLBACK_KEY,JSON.stringify(a));pendingMark(REC_PENDING_KEY,'write',row.id);return Promise.resolve()}return new Promise((res,rej)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(row);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
+function dbDelete(key){if(fallback){localStorage.setItem(FALLBACK_KEY,JSON.stringify(fallbackRows().filter(x=>x.id!==key)));pendingMark(REC_PENDING_KEY,'delete',key);return Promise.resolve()}return new Promise((res,rej)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).delete(key);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
+function dbBulk(rows,replace=false){if(fallback){const old=replace?[]:fallbackRows();const map=new Map(old.map(x=>[x.id,x]));rows.forEach(x=>map.set(x.id,x));localStorage.setItem(FALLBACK_KEY,JSON.stringify([...map.values()]));pendingMark(REC_PENDING_KEY,replace?'replace':'write');return Promise.resolve()}return new Promise((res,rej)=>{const tx=db.transaction(STORE,'readwrite');const o=tx.objectStore(STORE);if(replace)o.clear();for(const r of rows)o.put(r);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
+async function reconcileFallbackRecords(){
+ const raw=localStorage.getItem(FALLBACK_KEY);if(raw===null)return;
+ const overlay=fallbackRows(),meta=pendingGet(REC_PENDING_KEY);
+ if(!overlay.length&&!meta.replace&&!meta.deleted.length)return;
+ const current=await dbGetAll();let result=[];
+ if(meta.replace)result=overlay;
+ else{
+  const deleted=new Set(meta.deleted),byId=new Map(current.filter(x=>!deleted.has(x.id)).map(x=>[x.id,x]));
+  for(const r of overlay){
+   // Se prioriza el dato alternativo solo si es más nuevo que el de la base original.
+   const old=byId.get(r.id);
+   if(!old||String(r.updatedAt||'')>=String(old.updatedAt||''))byId.set(r.id,r);
+  }
+  result=[...byId.values()];
+ }
+ await dbBulk(result,true);
+ localStorage.removeItem(FALLBACK_KEY);localStorage.removeItem(REC_PENDING_KEY);
+}
+
+ function incFallbackRows(){try{return JSON.parse(localStorage.getItem(INC_FALLBACK_KEY)||'[]')}catch{return []}}
+ function incGetAll(){if(incFallback)return Promise.resolve(incFallbackRows());return new Promise((res,rej)=>{const q=incdb.transaction(INCSTORE,'readonly').objectStore(INCSTORE).getAll();q.onsuccess=()=>res(q.result||[]);q.onerror=()=>rej(q.error)})}
+ function incWrite(row){if(incFallback){const a=incFallbackRows().filter(x=>x.id!==row.id);a.push(row);localStorage.setItem(INC_FALLBACK_KEY,JSON.stringify(a));pendingMark(INC_PENDING_KEY,'write',row.id);return Promise.resolve()}return new Promise((res,rej)=>{const tx=incdb.transaction(INCSTORE,'readwrite');tx.objectStore(INCSTORE).put(row);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
+ function incDelete(key){if(incFallback){localStorage.setItem(INC_FALLBACK_KEY,JSON.stringify(incFallbackRows().filter(x=>x.id!==key)));pendingMark(INC_PENDING_KEY,'delete',key);return Promise.resolve()}return new Promise((res,rej)=>{const tx=incdb.transaction(INCSTORE,'readwrite');tx.objectStore(INCSTORE).delete(key);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
+ function incBulk(rows,replace=false){if(incFallback){const old=replace?[]:incFallbackRows(),map=new Map(old.map(x=>[x.id,x]));rows.forEach(x=>map.set(x.id,x));localStorage.setItem(INC_FALLBACK_KEY,JSON.stringify([...map.values()]));pendingMark(INC_PENDING_KEY,replace?'replace':'write');return Promise.resolve()}return new Promise((res,rej)=>{const tx=incdb.transaction(INCSTORE,'readwrite'),o=tx.objectStore(INCSTORE);if(replace)o.clear();for(const r of rows)o.put(r);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
+async function reconcileFallbackIncidences(){
+ const raw=localStorage.getItem(INC_FALLBACK_KEY);if(raw===null)return;
+ const overlay=incFallbackRows(),meta=pendingGet(INC_PENDING_KEY);
+ if(!overlay.length&&!meta.replace&&!meta.deleted.length)return;
+ const current=await incGetAll();let merged=[];
+ if(meta.replace)merged=overlay;
+ else{
+  const deleted=new Set(meta.deleted),byId=new Map(current.filter(x=>!deleted.has(x.id)).map(x=>[x.id,x]));
+  for(const r of overlay){const old=byId.get(r.id);if(!old||String(r.updatedAt||'')>=String(old.updatedAt||''))byId.set(r.id,r)}
+  merged=[...byId.values()];
+ }
+ await incBulk(merged,true);
+ localStorage.removeItem(INC_FALLBACK_KEY);localStorage.removeItem(INC_PENDING_KEY);
+}
+ // Atomic restore when both datasets are included in a JSON backup (IndexedDB path).
+ // Restore compatible con bases V1.3 (registros) y V1.4/V1.5 (registros + incidencias).
+ // Nunca se borra una tabla si el archivo no la incluye.
+ async function restoreDatasets(rows,cases,writeCases,writeRows=true){
+  if(!writeRows&&!writeCases)return;
+  if(fallback&&incFallback){
+   const priorRows=localStorage.getItem(FALLBACK_KEY),priorCases=localStorage.getItem(INC_FALLBACK_KEY);
+   try{
+    if(writeRows){localStorage.setItem(FALLBACK_KEY,JSON.stringify(rows));pendingMark(REC_PENDING_KEY,'replace')}
+    if(writeCases){localStorage.setItem(INC_FALLBACK_KEY,JSON.stringify(cases));pendingMark(INC_PENDING_KEY,'replace')}
+   }catch(err){
+    try{if(writeRows){if(priorRows===null)localStorage.removeItem(FALLBACK_KEY);else localStorage.setItem(FALLBACK_KEY,priorRows)}
+     if(writeCases){if(priorCases===null)localStorage.removeItem(INC_FALLBACK_KEY);else localStorage.setItem(INC_FALLBACK_KEY,priorCases)}}catch(e){console.error('Error al revertir',e)}
+    throw err;
+   }
+   return;
+  }
+  if(!fallback&&!incFallback&&incdb===db){
+   // Si ambas tablas están en la misma base, usa una transacción atómica.
+   return new Promise((resolve,reject)=>{
+    const names=writeCases&&writeRows?[STORE,INCSTORE]:[writeRows?STORE:INCSTORE];
+    const tx=db.transaction(names,'readwrite');
+    if(writeRows){const st=tx.objectStore(STORE);st.clear();rows.forEach(r=>st.put(r))}
+    if(writeCases){const st=tx.objectStore(INCSTORE);st.clear();cases.forEach(r=>st.put(r))}
+    tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||Error('Transacción cancelada'));
+   });
+  }
+  // Bases separadas: conservar copia de ambas para revertir ante una falla.
+  const oldRows=writeRows?await dbGetAll():null,oldCases=writeCases?await incGetAll():null;
+  try{
+   if(writeRows)await dbBulk(rows,true);
+   if(writeCases)await incBulk(cases,true);
+  }catch(err){
+   try{if(writeRows)await dbBulk(oldRows,true);if(writeCases)await incBulk(oldCases,true)}
+   catch(rollbackError){console.error('Error al recuperar el estado anterior',rollbackError)}
+   throw err;
+  }
+ }
+
+ const INC_TYPES=['Operativa','Documentación','Sistema / app','Calidad de venta','Activación','Otra'];
+ const INC_STATUSES=['Abierta','En seguimiento','Resuelta'];
+ const INC_PRIORITIES=['Baja','Media','Alta'];
+ // Conservar el esquema de respaldos históricos, pero usar solo comentario y resolución en la pantalla.
+ function normalizeIncident(x){return {id:clean(x.id)||id(),date:normalizeDate(x.date??x.fecha),folio:clean(x.folio),linkedRecordId:clean(x.linkedRecordId),category:INC_TYPES.includes(x.category)?x.category:'Otra',priority:INC_PRIORITIES.includes(x.priority)?x.priority:'Media',status:INC_STATUSES.includes(x.status)?x.status:'Abierta',promoterName:clean(x.promoterName),description:clean(x.description),actions:clean(x.actions),resolution:clean(x.resolution),createdAt:clean(x.createdAt)||new Date().toISOString(),updatedAt:clean(x.updatedAt)||new Date().toISOString(),closedAt:clean(x.closedAt)}}
+ function matchingRecord(folio){return records.find(r=>r.folio.toLocaleLowerCase('es')===clean(folio).toLocaleLowerCase('es'))}
+ function recordForCase(c){return records.find(r=>(c.linkedRecordId&&r.id===c.linkedRecordId)||(c.folio&&r.folio.toLocaleLowerCase('es')===c.folio.toLocaleLowerCase('es')))||null}
+ function incidentItems(){
+  const used=new Set(),sorted=[...incidences].sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt))),out=[];
+  for(const r of records){
+   const c=sorted.find(x=>!used.has(x.id)&&((x.linkedRecordId&&x.linkedRecordId===r.id)||(x.folio&&x.folio.toLocaleLowerCase('es')===r.folio.toLocaleLowerCase('es'))));
+   if(!r.incident&&!c)continue;
+   if(c)used.add(c.id);
+   out.push({...c,id:c?.id||`auto::${r.id}`,recordId:r.id,date:r.date,folio:r.folio,promoterName:r.promoterName||'',type:r.type,barcode:r.barcode||'',dental:!!r.dental,cero:!!r.cero,app:!!r.app,dynamic:!!r.dynamic,incident:true,actions:c?.actions||'',resolution:c?.resolution||'',description:c?.description||'',status:c?.status||'Abierta',updatedAt:c?.updatedAt||r.updatedAt,createdAt:c?.createdAt||r.createdAt,closedAt:c?.closedAt||'',category:c?.category||'Operativa',priority:c?.priority||'Media',linkedRecordId:r.id,sourceRecord:r,hasCase:!!c});
+  }
+  for(const c of sorted.filter(x=>!used.has(x.id))){
+   const r=recordForCase(c);
+   out.push({...c,recordId:r?.id||'',type:r?.type||'—',barcode:r?.barcode||'',dental:!!r?.dental,cero:!!r?.cero,app:!!r?.app,dynamic:!!r?.dynamic,sourceRecord:r,hasCase:true});
+  }
+  return out;
+ }
+ const resolvedCase=x=>x.status==='Resuelta';
+ function incidentFiltered(){let a=incidentItems(),q=clean($('incidentSearch').value).toLocaleLowerCase('es'),st=$('incidentStatusFilter').value,pe=$('incidentPeriodFilter').value;
+  if(st==='pending')a=a.filter(x=>!resolvedCase(x));if(st==='resolved')a=a.filter(resolvedCase);
+  if(pe==='today')a=a.filter(x=>x.date===todayKey());if(pe==='week'){const m=monday(todayKey());a=a.filter(x=>x.date>=m&&x.date<=addDays(m,6))}
+  if(q)a=a.filter(x=>[x.folio,x.promoterName,x.actions,x.resolution,x.description,x.type].some(v=>String(v||'').toLocaleLowerCase('es').includes(q)));
+  return a.sort((x,y)=>y.date.localeCompare(x.date)||String(y.updatedAt).localeCompare(String(x.updatedAt)));
+ }
+ function incidentComment(x){return clean(x.actions)||clean(x.resolution)||''}
+ function renderIncidents(){
+  if(!$('incidentKpis'))return;
+  const all=incidentItems(),done=all.filter(resolvedCase).length,pending=all.length-done,noComment=all.filter(x=>!incidentComment(x)).length;
+  $('incidentKpis').innerHTML=kpi('Incidencias',all.length,'Marcadas en registros e históricas',true)+kpi('Sin resolver',pending,'Pendientes de solución',true)+kpi('Resueltas',done,'Con confirmación de solución')+kpi('Sin comentario',noComment,'Pendientes de documentar');
+  const rows=incidentFiltered(),n=20,pages=Math.max(1,Math.ceil(rows.length/n));incPageNumber=Math.max(1,Math.min(incPageNumber,pages));
+  $('incidentsCount').textContent=`${rows.length} incidencias`;
+  $('incidentPageLabel').textContent=`${incPageNumber} / ${pages}`;
+  $('incidentPageCount').textContent=rows.length?`Mostrando ${(incPageNumber-1)*n+1}–${Math.min(rows.length,incPageNumber*n)} de ${rows.length}`:'Sin resultados';
+  $('incidentPrev').disabled=incPageNumber===1;$('incidentNext').disabled=incPageNumber===pages;
+  const shown=rows.slice((incPageNumber-1)*n,incPageNumber*n);
+  $('incidentsTable').innerHTML=!shown.length?'<div class="empty inc-empty"><strong>Sin incidencias para mostrar</strong>Marca «Incidencia» al crear o editar un registro, o cambia los filtros.</div>':
+   `<table><thead><tr><th>Fecha</th><th>Folio</th><th>Producto</th><th>Promotor</th><th>Comentario de seguimiento</th><th>Resolución</th></tr></thead><tbody>${shown.map(x=>`<tr class="incident-row" role="button" tabindex="0" data-open-incident="${html(x.id)}" aria-label="Ver incidencia del folio ${html(x.folio)}"><td>${html(humanDate(x.date))}</td><td><strong>${html(x.folio||'—')}</strong></td><td>${html(shownProduct(x.type))}</td><td>${html(x.promoterName||'Sin especificar')}</td><td class="incident-summary">${html((incidentComment(x)||'Sin comentario').slice(0,155))}</td><td><span class="status-badge ${resolvedCase(x)?'status-resuelta':'status-abierta'}">${resolvedCase(x)?'Resuelta':'Sin resolver'}</span></td></tr>`).join('')}</tbody></table>`;
+ }
+ let activeIncidentRef=null;
+ function detailField(title,value,wide=false){return `<div class="incident-detail-item${wide?' full':''}"><small>${html(title)}</small><strong>${html(value??'—')}</strong></div>`}
+ function showIncident(item){
+  if(!item)return;
+  activeIncidentRef=item.id;
+  $('incidentTitle').textContent='Incidencia · '+(item.folio||'Sin folio');
+  const yes=v=>v?'Sí':'No';
+  $('incidentDetail').innerHTML=[detailField('Módulo',settings.module),detailField('Fecha del registro',humanDate(item.date)),detailField('Folio',item.folio||'—'),detailField('Promotor',item.promoterName||'Sin especificar'),detailField('Producto',shownProduct(item.type)),detailField('Código de barras',shownBarcode(item.barcode)||'Sin código'),detailField('Plan Dental',yes(item.dental)),detailField('Plan Cero',yes(item.cero)),detailField('Activación por app',yes(item.app)),detailField('Dinámica',yes(item.dynamic))].join('');
+  const legacy=clean(item.description);
+  $('incidentLegacyDetail').hidden=!legacy||legacy==='Incidencia registrada en trámite';
+  $('incidentLegacyDetail').textContent=legacy?'Antecedente del expediente anterior: '+legacy:'';
+  $('incidentComment').value=incidentComment(item);
+  $('incidentResolved').checked=resolvedCase(item);
+  modalOpen('incidentModal');
+ }
+ function incidentItemOpen(){return incidentItems().find(x=>x.id===activeIncidentRef)}
+ async function saveIncident(e){
+  e.preventDefault();const item=incidentItemOpen();if(!item){alertToast('No se encontró la incidencia. Actualiza la lista.');return}
+  if(!incidentReady){alertToast('La base de incidencias aún no está disponible. Revisa el aviso superior.');return}
+  const comment=clean($('incidentComment').value),resolved=$('incidentResolved').checked,now=new Date().toISOString();
+  if(resolved&&!comment){alertToast('Escribe un comentario antes de marcar la incidencia como resuelta.');$('incidentComment').focus();return}
+  const old=item.hasCase?incidences.find(x=>x.id===item.id):null;
+  const row={id:old?.id||id(),date:item.date,folio:item.folio,linkedRecordId:item.sourceRecord?.id||old?.linkedRecordId||'',category:old?.category||'Operativa',priority:old?.priority||'Media',status:resolved?'Resuelta':'Abierta',promoterName:item.promoterName,description:old?.description||'Incidencia registrada en trámite',actions:comment,resolution:resolved?comment:'',createdAt:old?.createdAt||now,updatedAt:now,closedAt:resolved?(old?.status==='Resuelta'?old.closedAt||now:now):''};
+  try{
+   await incWrite(row);
+   incidences=incidences.filter(x=>x.id!==row.id);incidences.push(row);
+   if(item.sourceRecord&&!item.sourceRecord.incident){const r=item.sourceRecord,updated={...r,incident:true,updatedAt:now};await dbWrite(updated);records=records.map(x=>x.id===r.id?updated:x)}
+   activeIncidentRef=null;refresh();modalClose('incidentModal');alertToast(resolved?'Incidencia marcada como resuelta.':'Seguimiento guardado.');
+  }catch(err){console.error(err);alertToast('No se pudo guardar el seguimiento: '+(err?.message||'revisa el almacenamiento.'))}
+ }
+ function incidentText(item,comment,resolved){const yes=v=>v?'Sí':'No';return [settings.module,'',`Fecha: ${humanDate(item.date)}`,`Folio: ${item.folio||'—'}`,`Producto: ${shownProduct(item.type)}`,`Código de barras: ${shownBarcode(item.barcode)||'—'}`,`Promotor: ${item.promoterName||'Sin especificar'}`,`Plan dental: ${yes(item.dental)}`,`Plan cero: ${yes(item.cero)}`,`Activación por app: ${yes(item.app)}`,...(item.dynamic?['Dinámica: Sí']:[]),'Incidencia: Sí',`Estado: ${resolved?'Resuelta':'Sin resolver'}`,...(clean(comment)?[`Comentario: ${clean(comment)}`]:[])].join('\n')}
+ async function copyIncident(){
+  const item=incidentItemOpen();if(!item)return;
+  await copyToClipboard(incidentText(item,clean($('incidentComment').value),$('incidentResolved').checked),'Datos de incidencia copiados al portapapeles.');
+ }
+ function incidentCSV(){
+  const rows=incidentFiltered(),headers=['ID','Fecha','Folio','Tipo de incidencia','Prioridad','Promotor responsable','Estatus','Descripción','Acciones realizadas','Resultado o solución','Creada el','Actualizada el','Resuelta el','Producto','Código de barras','Código completo (reporte)','Plan dental','Plan cero','Activación por app','Dinámica','Producto completo (reporte)'];
+  const csvSafe=x=>{let t=String(x??'');if(/^[\s]*[=+@-]/.test(t))t="'"+t;return csvCell(t)};
+  const data=[headers,...rows.map(x=>[x.id,x.date,x.folio,x.category||'Operativa',x.priority||'Media',x.promoterName,resolvedCase(x)?'Resuelta':'Abierta',x.description||'Incidencia registrada en trámite',x.actions||'',x.resolution||'',x.createdAt||'',x.updatedAt||'',x.closedAt||'',x.type,x.barcode,shownBarcode(x.barcode),x.dental?'Sí':'No',x.cero?'Sí':'No',x.app?'Sí':'No',x.dynamic?'Sí':'No',shownProduct(x.type)])];
+  downloadBlob(new Blob(['\uFEFF'+data.map(x=>x.map(csvSafe).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}),`incidencias_${filename(settings.module)}_${todayKey()}.csv`);alertToast(`CSV de incidencias exportado (${rows.length} filas).`)
+ }
+function normalizedType(v){const s=clean(v).toLowerCase();return s.includes('garant')?'Garantizada':'Regular'}
+function normalizeDate(x){if(typeof x!=='string')return todayKey();const t=x.trim();if(/^\d{4}-\d{2}-\d{2}/.test(t)){const k=t.slice(0,10);return !isNaN(new Date(k+'T12:00:00Z'))?k:todayKey()}const m=t.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})/);if(m){const k=`${m[3]}-${z(m[2])}-${z(m[1])}`;return !isNaN(new Date(k+'T12:00:00Z'))?k:todayKey()}return todayKey()}
+function normalizeRow(x){return {id:clean(x.id)||id(),date:normalizeDate(x.date??x.fecha),type:normalizedType(x.type??x.tipoProducto??x.tipo),folio:clean(x.folio),barcode:clean(x.barcode??x.codigoBarras??x.codigo),dental:bool(x.dental??x.planDental),cero:bool(x.cero??x.planCero),app:bool(x.app??x.activacionApp),promoterFlag:!!clean(x.promoterName??x.nombrePromotor??x.promotor)||bool(x.promoterFlag??x.promotorActivo),promoterName:clean(x.promoterName??x.nombrePromotor??x.promotor??''),dynamic:bool(x.dynamic??x.dinamica),incident:bool(x.incident??x.incidencia),comment:clean(x.comment??x.comentario??x.comments??''),updateRequest:bool(x.updateRequest??x.solicitudActualizacion??x.solicitudDeActualizacion),updateRequestAt:clean(x.updateRequestAt??x.fechaSolicitudActualizacion),createdAt:clean(x.createdAt)||new Date().toISOString(),updatedAt:clean(x.updatedAt)||new Date().toISOString()}}
+function refresh(){records.sort((a,b)=>(b.date.localeCompare(a.date)||b.createdAt.localeCompare(a.createdAt)));$('moduleLabel').textContent=settings.module;$('headerDate').textContent=textDate(todayKey());renderDashboard();renderTables();renderIncidents()}
+function isSale(r){return !settings.requireBarcode||!!clean(r.barcode)}
+function indicators(r){return !settings.metricsOnlySales||isSale(r)}
+function fromPeriod(p){const today=todayKey(),start=monday(today);return p==='today'?records.filter(x=>x.date===today):p==='week'?records.filter(x=>x.date>=start&&x.date<=addDays(start,6)):records}
+function stats(rows){const sales=rows.filter(isSale),eligible=rows.filter(indicators);return {tr:rows.length,sales:sales.length,regular:sales.filter(x=>x.type==='Regular').length,guaranteed:sales.filter(x=>x.type==='Garantizada').length,dental:eligible.filter(x=>x.dental).length,cero:eligible.filter(x=>x.cero).length,app:eligible.filter(x=>x.app).length,promoters:eligible.filter(x=>x.promoterFlag).length,dynamic:eligible.filter(x=>x.dynamic).length,incident:eligible.filter(x=>x.incident).length}}
+function percent(a,b){return b?`${Math.round(a/b*100)}%`:'0%'}
+function kpi(label,value,note,featured){return `<article class="kpi ${featured?'featured':''}"><div class="name">${html(label)}</div><div class="value">${value}</div><div class="note">${html(note)}</div></article>`}
+function renderDashboard(){const t=todayKey(),m=monday(t),r=fromPeriod(period),s=stats(r);document.querySelectorAll('[data-period]').forEach(b=>b.classList.toggle('active',b.dataset.period===period));$('periodText').textContent=period==='today'?`Hoy · ${textDate(t)}`:period==='week'?`Semana del ${humanDate(m)} al ${humanDate(addDays(m,6))}`:`Histórico completo · ${records.length} registros`;
+ $('kpis').innerHTML=kpi('Trámites',s.tr,'Todos los registros',true)+kpi('Ventas',s.sales,`${percent(s.sales,s.tr)} conversión`,true)+kpi('Regulares',s.regular,'Ventas regulares')+kpi('Garantizadas',s.guaranteed,'Ventas garantizadas')+kpi('Plan dental',s.dental,'Registros que aplican')+kpi('Plan cero',s.cero,'Registros que aplican')+kpi('Activaciones por app',s.app,'Registros que aplican')+kpi('Dinámicas',s.dynamic,'Registros que aplican');
+ $('conversionLabel').textContent=percent(s.sales,s.tr);$('countLabel').textContent=s.tr;let days=[0,1,2,3,4,5,6].map(i=>addDays(m,i));let counts=days.map(d=>records.filter(x=>x.date===d&&isSale(x)).length);const max=Math.max(1,...counts);$('chartSubtitle').textContent=`Semana actual · ${humanDate(m)} – ${humanDate(addDays(m,6))}`;$('dayChart').innerHTML=days.map((day,i)=>`<div class="chart-day" title="${humanDate(day)}: ${counts[i]} ventas"><div class="chart-number">${counts[i]}</div><div class="chart-bar-wrap"><div class="chart-bar" style="height:${counts[i]?(counts[i]/max*100):0}%"></div></div><div class="chart-label">${['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'][i]}</div></div>`).join('');
+ const metricRows=[['Plan dental',s.dental],['Plan cero',s.cero],['Activaciones',s.app],['Promotores',s.promoters],['Dinámicas',s.dynamic],['Incidencias',s.incident]];$('metricList').innerHTML=metricRows.map(([name,v])=>`<div><div class="metric-line"><span>${name}</span><strong>${v}</strong></div><div class="track"><span style="width:${s.sales?Math.min(100,v/s.sales*100):0}%"></span></div></div>`).join('');
+ $('recentTable').innerHTML=tableHTML(r.slice(0,7),false)}
+function promoterText(r){return r.promoterFlag?(r.promoterName||'Sí'):'—'}
+function tableHTML(rows,withActions){if(!rows.length)return `<div class="empty"><strong>No hay registros para mostrar</strong>Captura una operación nueva o modifica los filtros.${withActions?'':'<div><button class="btn btn-primary" data-quick-new="1">+ Nuevo registro</button></div>'}</div>`;return `<table><thead><tr><th>Fecha</th><th>Producto</th><th>Folio</th><th>Código de barras</th><th>PD</th><th>P0</th><th>App</th><th>Promotor</th><th>Dinámica</th><th>Incidencia</th></tr></thead><tbody>${rows.map(r=>`<tr class="record-row" role="button" tabindex="0" data-open-record="${html(r.id)}" aria-label="Ver detalle del folio ${html(r.folio)}"><td>${html(humanDate(r.date))}</td><td><span class="pill ${r.type.toLowerCase()}">${html(shownProduct(r.type))}</span></td><td><strong>${html(r.folio)}</strong></td><td>${r.barcode?html(shownBarcode(r.barcode)):'<span class="no">Pendiente</span>'}</td><td>${flagHTML(r.dental)}</td><td>${flagHTML(r.cero)}</td><td>${flagHTML(r.app)}</td><td>${html(promoterText(r))}</td><td>${flagHTML(r.dynamic)}</td><td>${r.incident?'<span class="danger-text">Sí</span>':'<span class="no">—</span>'}</td></tr>`).join('')}</tbody></table>`}
+function flagHTML(v){return v?'<span class="yes">Sí</span>':'<span class="no">—</span>'}
+function filteredRows(){let rows=fromPeriod($('filterPeriod').value),f=$('filterType').value,q=clean($('searchInput').value).toLocaleLowerCase('es');if(f!=='all')rows=rows.filter(x=>x.type===f);if(q)rows=rows.filter(x=>[x.folio,x.barcode,x.promoterName,x.date,x.type,x.comment].some(v=>String(v).toLocaleLowerCase('es').includes(q)));return rows}
+function renderTables(){const rows=filteredRows(),size=25,pages=Math.max(1,Math.ceil(rows.length/size));pageNumber=Math.max(1,Math.min(pageNumber,pages));$('allTable').innerHTML=tableHTML(rows.slice((pageNumber-1)*size,pageNumber*size),true);$('recordsCount').textContent=`${rows.length} registros`;$('pageCount').textContent=rows.length?`Mostrando ${(pageNumber-1)*size+1}–${Math.min(rows.length,pageNumber*size)} de ${rows.length}`:'Sin resultados';$('pageLabel').textContent=`${pageNumber} / ${pages}`;$('prevPage').disabled=pageNumber===1;$('nextPage').disabled=pageNumber===pages}
+function activateTab(next){page=next;$('dashboardView').hidden=page!=='dashboard';$('recordsView').hidden=page!=='records';$('incidentsView').hidden=page!=='incidents';document.querySelectorAll('[data-tab]').forEach(x=>{const a=x.dataset.tab===page;x.classList.toggle('active',a);x.setAttribute('aria-selected',String(a))})}
+function modalOpen(which){document.getElementById(which).hidden=false;document.body.style.overflow='hidden'}
+function modalClose(which){if(which==='setupModal'&&setupMissing())return;if(which==='recordModal')wipeClientFields();if(which==='dailyReportModal'){$('dailyReportForm').reset();}$(which).hidden=true;if(![...document.querySelectorAll('.modal-backdrop')].some(x=>!x.hidden))document.body.style.overflow=''}
+function closeMenu(){const b=$('topMenu');b.classList.remove('open');b.setAttribute('aria-expanded','false');$('fabMenu').hidden=true;if($('exportMenu').hidden)$('fabBackdrop').hidden=true}
+function closeExportMenu(){const b=$('exportFab');b.classList.remove('open');b.setAttribute('aria-expanded','false');$('exportMenu').hidden=true;if($('fabMenu').hidden)$('fabBackdrop').hidden=true}
+function closeFloatingMenus(){closeMenu();closeExportMenu()}
+function toggleExportMenu(){const menu=$('exportMenu'),b=$('exportFab');if(!menu.hidden){closeExportMenu();return}closeMenu();menu.hidden=false;$('fabBackdrop').hidden=false;b.classList.add('open');b.setAttribute('aria-expanded','true')}
+function toggleMenu(){closeExportMenu();const menu=$('fabMenu'),b=$('topMenu');if(!menu.hidden){closeMenu();return}const r=b.getBoundingClientRect();menu.style.top=Math.max(8,r.bottom+8)+'px';menu.style.right=Math.max(12,window.innerWidth-r.right)+'px';menu.style.maxHeight=Math.max(180,window.innerHeight-r.bottom-22)+'px';menu.hidden=false;$('fabBackdrop').hidden=false;b.classList.add('open');b.setAttribute('aria-expanded','true')}
+function chooseProduct(p){
+ selectedProduct=p;
+ $('formFields').hidden=!p;
+ $('saveRecord').disabled=!p;
+ $('productChoice').hidden=!!p;
+ $('productPicked').hidden=!p;
+ $('productPickedText').innerHTML=p?`Tipo seleccionado: <span class="pill ${p.toLowerCase()}">${html(p)}</span>`:'';
+ document.querySelectorAll('[data-product]').forEach(b=>{b.classList.toggle('selected',b.dataset.product===p);b.classList.toggle('gold',b.dataset.product===p&&p==='Garantizada')});
+}
+function updateFlags(){document.querySelectorAll('[data-flag]').forEach(b=>{const on=!!formFlags[b.dataset.flag];b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on))})}
+function updatePromoterOptions(selected=''){
+ // Only configured promoters are shown as buttons. A historical value not in the
+ // catalog is kept until the user chooses another promoter, avoiding data loss.
+ const names=[...settings.promoters];
+ $('recordPromoter').value=selected;
+ $('promoterButtons').innerHTML=names.map((name,i)=>{
+  const on=name===selected;
+  return `<button type="button" class="promoter-option${on?' on':''}" data-promoter-index="${i}" aria-pressed="${on}">${html(name)}</button>`;
+ }).join('');
+ const hint=$('promoterHint');
+ if(!names.length)hint.textContent='No hay promotores configurados. Agrégalos desde Ajustes.';
+ else if(selected&&!names.includes(selected))hint.textContent='El promotor anterior no está en el catálogo actual. Selecciona uno de los botones para cambiarlo; el dato anterior se conservará si no eliges otro.';
+ else hint.textContent='Selecciona un promotor configurado en Ajustes.';
+ // Map indexes to the exact catalog; no "Sin especificar" option is created.
+ formPromoterOptions=names;
+}
+
+let formPromoterOptions=[];
+let activeRecordId=null;
+function activeRecord(){return records.find(x=>x.id===activeRecordId)||null}
+function linkedIncident(r){return incidentItems().find(x=>x.recordId===r.id||x.sourceRecord?.id===r.id)||null}
+function showRecordDetail(r){
+ if(!r)return;
+ activeRecordId=r.id;
+ const linked=linkedIncident(r),yes=v=>v?'Sí':'No';
+ $('recordDetailTitle').textContent='Trámite · '+r.folio;
+ $('recordDetailGrid').innerHTML=[
+  detailField('Módulo',settings.module),detailField('Fecha de registro',humanDate(r.date)),
+  detailField('Tipo de producto',shownProduct(r.type)),detailField('Folio',r.folio),
+  detailField('Código de barras',shownBarcode(r.barcode)||'Sin código'),detailField('Promotor',r.promoterName||'Sin especificar'),
+  detailField('Plan Dental',yes(r.dental)),detailField('Plan Cero',yes(r.cero)),
+  detailField('Activación por app',yes(r.app)),detailField('Dinámica',yes(r.dynamic)),
+  detailField('Incidencia',linked?(linked.status==='Resuelta'?'Sí · Resuelta':'Sí · Sin resolver'):yes(r.incident)),
+  detailField('Comentario del registro',r.comment||'Sin comentario',true),detailField('Solicitud de actualización',r.updateRequest?'Generada':'Sin solicitud')
+ ].join('');
+ $('detailIncident').textContent=linked||r.incident?'Ver incidencia':'Marcar incidencia';
+ modalOpen('recordDetailModal');
+}
+function recordLines(r){
+ const yes=v=>v?'Sí':'No',linked=linkedIncident(r);
+ const fields=[
+  `Fecha: ${humanDate(r.date)}`,
+  `Producto: ${shownProduct(r.type)}`,
+  `Folio: ${r.folio}`,
+  `Código de barras: ${shownBarcode(r.barcode)||'Sin código'}`,
+  `Promotor: ${r.promoterName||'Sin especificar'}`,
+  `Plan dental: ${yes(r.dental)}`,
+  `Plan cero: ${yes(r.cero)}`,
+  `Activación por app: ${yes(r.app)}`
+ ];
+ // Los indicadores no activos y los comentarios vacíos NO se copian.
+ if(r.dynamic)fields.push('Dinámica: Sí');
+ if(r.incident||linked)fields.push('Incidencia: Sí');
+ if(clean(r.comment))fields.push(`Comentario del registro: ${clean(r.comment)}`);
+ if(linked){
+  fields.push(`Estado de incidencia: ${linked.status==='Resuelta'?'Resuelta':'Sin resolver'}`);
+  const followUp=incidentComment(linked);
+  if(followUp)fields.push(`Comentario de seguimiento: ${followUp}`);
+ }
+ return fields.join('\n');
+}
+function recordText(r){
+ return `${settings.module}\n\n${recordLines(r)}`;
+}
+async function tryCopyToClipboard(content){
+ let copied=false;
+ if(navigator.clipboard?.writeText){try{await navigator.clipboard.writeText(content);copied=true}catch(err){console.warn('Portapapeles moderno:',err)}}
+ if(!copied){
+  const area=document.createElement('textarea');area.value=content;area.setAttribute('readonly','');area.style.cssText='position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;z-index:-1';document.body.append(area);area.focus();area.select();area.setSelectionRange(0,content.length);
+  try{copied=!!document.execCommand('copy')}catch(err){console.warn('Portapapeles alternativo:',err)}finally{area.remove()}
+ }
+ return copied;
+}
+async function copyToClipboard(content,success){
+ const copied=await tryCopyToClipboard(content);
+ alertToast(copied?success:'No se pudo copiar automáticamente. Abre el archivo en Chrome y revisa los permisos del portapapeles.');
+ return copied;
+}
+async function copyRecordDetail(){const r=activeRecord();if(r)await copyToClipboard(recordText(r),'Datos del trámite copiados al portapapeles.')}
+function editRecordDetail(){const r=activeRecord();if(!r)return;modalClose('recordDetailModal');showRecord(r)}
+async function deleteRecordDetail(){const r=activeRecord();if(!r)return;await deleteRow(r.id);if(!records.some(x=>x.id===r.id)){activeRecordId=null;modalClose('recordDetailModal')}}
+async function incidentFromRecord(){
+ const r=activeRecord();if(!r)return;
+ let linked=linkedIncident(r);
+ if(!r.incident&&!linked){
+  if(!confirm(`¿Marcar el folio ${r.folio} con incidencia y abrir su seguimiento?`))return;
+  if(!storageReady){alertToast('La base local aún no permite guardar. Revisa el aviso superior.');return}
+  const changed={...r,incident:true,updatedAt:new Date().toISOString()};
+  try{await dbWrite(changed);records=records.map(x=>x.id===r.id?changed:x);refresh()}catch(err){alertToast('No fue posible marcar la incidencia: '+(err?.message||'revisa el almacenamiento.'));return}
+  linked=linkedIncident(changed);
+ }
+ if(!linked){alertToast('No se pudo abrir el seguimiento de este folio.');return}
+ modalClose('recordDetailModal');activeRecordId=null;showIncident(linked);
+}
+function showRecord(r=null){
+ editingId=r?.id||null;
+ formFlags=Object.fromEntries(FLAG_KEYS.map(k=>[k,!!r?.[k]]));
+ selectedProduct='';
+ $('recordTitle').textContent=r?'Editar registro':'Nuevo registro';
+ $('recordFormSubtitle').textContent=r?'Puedes modificar la fecha y todos los indicadores.':'La fecha de hoy se asigna automáticamente. Otros indicadores se habilitan al editar.';
+ $('recordForm').reset();
+ wipeClientFields();
+ const fixed=isPromoterMode();
+ $('promoterSelector').hidden=fixed;
+ $('fixedPromoter').hidden=!fixed;
+ $('clientTempFields').hidden=!!r||!fixed;
+ for(const field of ['clientName','clientPhone','clientEmail'])$(field).required=!r&&fixed;
+ $('recordDate').value=r?.date||todayKey();
+ $('recordFolio').value=r?.folio||'';
+ $('recordBarcode').value=r?.barcode||'';
+ $('recordComment').value=r?.comment||'';
+ $('recordCommentEnabled').checked=!!clean(r?.comment||'');
+ $('recordCommentGroup').hidden=!$('recordCommentEnabled').checked;
+ document.querySelectorAll('#recordModal .only-edit').forEach(el=>el.hidden=!r);
+ // Los indicadores de edición parten en falso para registros nuevos.
+ if(!r){formFlags.app=false;formFlags.dynamic=false;formFlags.incident=false}
+ const promoter=fixed?(r?.promoterName||settings.assignedPromoter):(r?.promoterName||'');
+ updatePromoterOptions(promoter);
+ $('fixedPromoterName').textContent=promoter||'Sin promotor asignado';
+ chooseProduct(r?.type||'');
+ updateFlags();
+ modalOpen('recordModal');
+}
+
+// Los campos auxiliares id, createdAt, updatedAt y promoterFlag no constituyen cambios solicitables.
+const EDIT_FIELDS=[
+ ['date','Fecha de registro'],['type','Tipo de producto'],['folio','Folio'],
+ ['barcode','Código de barras'],['dental','Plan dental'],['cero','Plan cero'],
+ ['app','Activación por app'],['promoterName','Promotor'],
+ ['dynamic','Dinámica'],['incident','Incidencia'],['comment','Comentario del registro']
+];
+function changedRecordFields(old,row){
+ return EDIT_FIELDS.filter(([key])=>{
+  if(FLAG_KEYS.includes(key))return !!old[key]!==!!row[key];
+  return clean(old[key])!==clean(row[key]);
+ }).map(([,label])=>label);
+}
+function editedRecordCopyText(row,changed){
+ return `${recordText(row)}\n\nPor favor solicitó cambio en: ${changed.join(', ')}.`;
+}
+async function saveRecord(e){
+ e.preventDefault();
+ if(!storageReady&&recordInitPromise){try{await recordInitPromise}catch(err){console.error(err)}}
+ if(!storageReady){alertToast(storageProblem||'No hay almacenamiento persistente disponible. Exporta un respaldo y verifica los permisos del navegador.');return}
+ if(!selectedProduct)return;
+ const folio=clean($('recordFolio').value),barcode=clean($('recordBarcode').value),date=$('recordDate').value;
+ if(!folio||!date){alertToast('Completa el folio y la fecha.');return}
+ if(settings.uniqueFolios&&records.some(x=>x.id!==editingId&&x.folio.toLocaleLowerCase('es')===folio.toLocaleLowerCase('es'))){alertToast('Ya existe un registro con ese folio.');return}
+ const old=records.find(x=>x.id===editingId);
+ if(!/^\d+$/.test(folio)&&(!old||folio!==old.folio)){alertToast('El folio debe contener únicamente números.');return}
+ if(barcode&&!/^\d+$/.test(barcode)&&(!old||barcode!==old.barcode)){alertToast('El código de barras debe contener únicamente números.');return}
+ // No se altera un código histórico de más de cinco dígitos si el usuario no lo tocó.
+ if(barcode.length>5&&(!old||barcode!==old.barcode)){alertToast('El código de barras admite como máximo 5 dígitos.');return}
+ const promoterName=clean($('recordPromoter').value);
+ if(!promoterName){alertToast('Selecciona el ejecutivo responsable antes de guardar.');return}
+ let customer=null;
+ if(!old&&isPromoterMode()){
+  customer={name:clean($('clientName').value),phone:clean($('clientPhone').value),email:clean($('clientEmail').value)};
+  if(!customer.name||!customer.phone||!customer.email||!$('clientEmail').checkValidity()){
+   alertToast('Completa nombre, teléfono y correo electrónico válido del cliente.');return;
+  }
+ }
+ // Solo los datos operativos se escriben en IndexedDB o localStorage.
+ // customer nunca se añade al objeto row ni a las exportaciones.
+ const row={id:editingId||id(),createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString(),date,type:selectedProduct,folio,barcode,...formFlags,promoterName,promoterFlag:true,comment:$('recordCommentEnabled').checked?clean($('recordComment').value):''};
+ const changed=old?changedRecordFields(old,row):[];
+ if(old&&!changed.length){modalClose('recordModal');alertToast('No se detectaron campos modificados.');return}
+ // Marca nueva y compatible: solo se asigna tras una edición con cambios reales.
+ // Las filas históricas sin esta marca no se convierten automáticamente en solicitudes.
+ if(old){row.updateRequest=true;row.updateRequestAt=row.updatedAt}
+ // Iniciamos la copia dentro del toque real de Guardar: Chrome móvil puede restringir
+ // el acceso al portapapeles si primero se espera una escritura asíncrona en IndexedDB.
+ const copyPromise=old?tryCopyToClipboard(editedRecordCopyText(row,changed)):(customer?tryCopyToClipboard(clientMessage(row,customer)):null);
+ try{
+  await dbWrite(row);
+  records=records.filter(x=>x.id!==row.id);records.push(row);refresh();modalClose('recordModal');
+  if(old){
+   const copied=await copyPromise;
+   alertToast(copied?'Registro actualizado y solicitud de cambios copiada.':'Registro actualizado, pero no se pudo copiar al portapapeles. Revisa permisos de Chrome.');
+  }else if(customer){
+   const copied=await copyPromise;
+   alertToast(copied?'Registro guardado y datos copiados para WhatsApp.':'Registro guardado, pero el navegador impidió copiar. Verifica los permisos del portapapeles.');
+  }else alertToast('Registro guardado correctamente.');
+ }catch(err){
+  if(copyPromise)await copyPromise.catch(()=>false);
+  alertToast('No se pudo guardar: '+(err?.message||'revisa permisos de almacenamiento.')+' Si se copió un texto, no lo envíes: el registro no se guardó.');
+  console.error(err);
+ }
+}
+async function deleteRow(rowid){const row=records.find(x=>x.id===rowid);if(!row||!confirm(`¿Eliminar permanentemente el registro ${row.folio}?`))return;try{await dbDelete(rowid);records=records.filter(x=>x.id!==rowid);refresh();alertToast('Registro eliminado.')}catch(err){alertToast('No se pudo eliminar.');console.error(err)}}
+function showHelp(){closeMenu();modalOpen('helpModal');const first=$('helpModal').querySelector('[data-close]');if(first)first.focus()}
+function showSettings(){draftPromoters=[...settings.promoters];$('settingsModule').value=settings.module==='Módulo sin configurar'?'':settings.module;$('settingsBarcode').checked=settings.requireBarcode;$('settingsValidMetrics').checked=settings.metricsOnlySales;$('settingsUnique').checked=settings.uniqueFolios;$('settingsBarcodePrefix').value=clean(settings.barcodePrefix);$('settingsProductPrefix').value=clean(settings.productPrefix);$('settingsRole').value=['supervisor','promotor'].includes(settings.usageRole)?settings.usageRole:'supervisor';renderPromoters();refreshSettingsAssignment(settings.assignedPromoter);modalOpen('settingsModal')}
+function refreshSettingsAssignment(preferred){
+ const select=$('settingsAssignedPromoter'),current=preferred===undefined?select.value:preferred;
+ select.innerHTML='<option value="">Selecciona el promotor</option>'+draftPromoters.map(n=>`<option value="${html(n)}">${html(n)}</option>`).join('');
+ select.value=draftPromoters.includes(current)?current:'';
+ $('settingsAssignedWrap').hidden=$('settingsRole').value!=='promotor';
+}
+function renderPromoters(){$('promoterChips').innerHTML=draftPromoters.length?draftPromoters.map((name,i)=>`<div class="chip">${html(name)} <button data-remove-promoter="${i}" title="Quitar del catálogo" aria-label="Eliminar ${html(name)}">×</button></div>`).join(''):'<span class="subtle">Aún no hay promotores configurados.</span>';refreshSettingsAssignment()}
+function addPromoter(){const n=clean($('promoterInput').value);if(!n)return;if(draftPromoters.some(x=>x.toLocaleLowerCase('es')===n.toLocaleLowerCase('es'))){alertToast('Ese promotor ya existe.');return}draftPromoters.push(n);$('promoterInput').value='';renderPromoters()}
+function saveSettings(){const module=clean($('settingsModule').value),promoters=[...draftPromoters].map(clean).filter(Boolean),barcodePrefix=clean($('settingsBarcodePrefix').value),productPrefix=clean($('settingsProductPrefix').value),usageRole=$('settingsRole').value,assignedPromoter=$('settingsAssignedPromoter').value;
+ if(!module||module===DEFAULT.module||!promoters.length||!/^\d+$/.test(barcodePrefix)||!productPrefix||!['supervisor','promotor'].includes(usageRole)||(usageRole==='promotor'&&!promoters.includes(assignedPromoter))){alertToast('Completa módulo, promotores, Productos, prefijo numérico y promotor asignado si corresponde.');return}
+ const next={...settings,module,promoters,barcodePrefix,productPrefix,usageRole,assignedPromoter:usageRole==='promotor'?assignedPromoter:'',requireBarcode:$('settingsBarcode').checked,metricsOnlySales:$('settingsValidMetrics').checked,uniqueFolios:$('settingsUnique').checked};try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(next));settings=next;refresh();modalClose('settingsModal');alertToast('Ajustes guardados.')}catch{alertToast('No fue posible guardar los ajustes.')}}
+// V2.9.1 — Formato del título *Ventas...* en el corte parcial. Sin cambios al almacenamiento.
+function reportDateTime(){
+ const parts=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,hourCycle:'h23'}).formatToParts(new Date()).filter(p=>p.type!=='literal').map(p=>[p.type,p.value]));
+ return `${parts.day}-${parts.month}-${parts.year} (${parts.hour}:${parts.minute})`;
+}
+function managementReportText(promoter,action){
+ const sales=fromPeriod('today').filter(isSale),totals=stats(fromPeriod('today'));
+ const counts=new Map();
+ for(const r of sales){const name=clean(r.promoterName)||'Sin promotor';counts.set(name,(counts.get(name)||0)+1)}
+ // Todos los promotores con ventas aparecen en un solo renglón, con el formato *Nombre*: xN.
+ const promoterItems=[...counts].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'es')).map(([name,n])=>`*${name}*: x${n}`);
+ const promoterLine=promoterItems.length?promoterItems.join(', '):'Sin ventas registradas por promotor';
+ // Se conserva al ejecutivo elegido y su acción, juntos en una sola línea.
+ return [settings.module,'',`*${reportDateTime()}*`,`*Ventas: ${totals.sales}*`,'',`Regulares: ${totals.regular}`,`Garantizadas: ${totals.guaranteed}`,`Plan cero: ${totals.cero}`,`Plan dental: ${totals.dental}`,'','*Ventas...*',promoterLine,`*Ejecutivo rezagado y acción*: ${promoter} — ${action}`].join('\n');
+}
+function openManagementReport(){
+ closeMenu();
+ const selector=$('laggingPromoter');
+ selector.innerHTML='<option value="">Selecciona un promotor</option>'+settings.promoters.map((name,i)=>`<option value="${i}">${html(name)}</option>`).join('');
+ $('dailyReportForm').reset();
+ modalOpen('dailyReportModal');
+}
+async function copyManagementReport(e){
+ e.preventDefault();
+ const index=Number($('laggingPromoter').value),selected=$('laggingPromoter').value;
+ const promoter=selected!==''?settings.promoters[index]:null,action=clean($('laggingAction').value);
+ if(!promoter||!action){alertToast('Selecciona un promotor y escribe el comentario de accionar.');return}
+ const text=managementReportText(promoter,action);
+ const success=await copyToClipboard(text,'Reporte diario de gestión copiado.');
+ if(success)modalClose('dailyReportModal');
+}
+function weekFoliosReportText(){
+ const start=monday(todayKey()),days=['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+ const lines=[settings.module,''];
+ for(let i=0;i<7;i++){
+  const day=addDays(start,i);
+  const sales=records.filter(r=>r.date===day&&!!clean(r.barcode)).sort((a,b)=>String(a.createdAt||'').localeCompare(String(b.createdAt||''))||a.folio.localeCompare(b.folio));
+  if(i)lines.push('');
+  lines.push(days[i]);
+  if(!sales.length){lines.push('Sin folios');continue}
+  for(const r of sales){
+   const labels=[];
+   if(r.incident||linkedIncident(r))labels.push('Incidencia');
+   if(r.updateRequest)labels.push('Solicitud de actualización');
+   lines.push(`${r.folio}${labels.length?', '+labels.join(' y '):''}`);
+  }
+ }
+ return lines.join('\n');
+}
+async function copyWeekFolios(){await copyToClipboard(weekFoliosReportText(),'Folios de la semana copiados al portapapeles.')}
+function reportText(){const today=todayKey(),start=monday(today),end=addDays(start,6),a=stats(fromPeriod('today')),b=stats(fromPeriod('week'));
+ function block(name,range,s){return `${name}${range?' · '+range:''}\n\nFecha: ${humanDate(today)}\nTrámites: ${s.tr}\nVentas: ${s.sales}\nRegulares: ${s.regular}\nGarantizadas: ${s.guaranteed}\nPlan dental: ${s.dental}\nPlan cero: ${s.cero}\nDinámica: ${s.dynamic}`}
+ return `MÓDULO: ${settings.module.toUpperCase()}\n\nProductos: ${settings.productPrefix}\n\n${block('ACUMULADO DEL DÍA','',a)}\n\n${block('ACUMULADO DE LA SEMANA',humanDate(start)+' al '+humanDate(end),b)}`}
+async function copyReport(){
+ // El texto del reporte contiene únicamente el módulo y los acumulados del día y de la semana; no agrega «Registros».
+ await copyToClipboard(reportText(),'Reporte del día y la semana copiado al portapapeles.');
+}
+function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000)}
+function csvCell(v){const s=String(v??'');return /[",\n\r]/.test(s)?`"${s.replace(/"/g,'""')}"`:s}
+const CSV_HEADERS=['ID','Fecha de registro','Tipo de producto','Folio','Codigo de barras','Plan dental','Plan cero','Activacion por app','Promotor','Nombre promotor','Dinamica','Incidencia','Creado el','Actualizado el','Comentario','Código completo (reporte)','Producto completo (reporte)','Solicitud de actualización','Fecha de solicitud'];
+function exportCSV(){const lines=[CSV_HEADERS,...records.map(r=>[r.id,r.date,r.type,r.folio,r.barcode,r.dental?'Si':'No',r.cero?'Si':'No',r.app?'Si':'No',r.promoterFlag?'Si':'No',r.promoterName,r.dynamic?'Si':'No',r.incident?'Si':'No',r.createdAt,r.updatedAt,r.comment||'',shownBarcode(r.barcode),shownProduct(r.type),r.updateRequest?'Sí':'No',r.updateRequestAt||''])];downloadBlob(new Blob(['\uFEFF'+lines.map(row=>row.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}),`registros_${filename(settings.module)}_${todayKey()}.csv`);alertToast('Tabla CSV exportada.')}
+function exportJSON(){const pack={app:APP,version:3,exportedAt:new Date().toISOString(),settings,records,incidences};downloadBlob(new Blob([JSON.stringify(pack,null,2)],{type:'application/json;charset=utf-8'}),`respaldo_registros_${filename(settings.module)}_${todayKey()}.json`);alertToast('Respaldo JSON exportado.')}
+function normalizeHeader(v){return clean(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'')}
+function parseTable(raw){
+ const s=String(raw).replace(/^\uFEFF/,'');
+ const first=(s.split(/\r?\n/)[0]||'');
+ const delimiter=[',',';','\t'].sort((a,b)=>first.split(b).length-first.split(a).length)[0];
+ let cells=[],rows=[],value='',quoted=false;
+ for(let i=0;i<s.length;i++){
+  const c=s[i];
+  if(c==='"'){if(quoted&&s[i+1]==='"'){value+='"';i++}else quoted=!quoted}
+  else if(c===delimiter&&!quoted){cells.push(value);value=''}
+  else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&s[i+1]==='\n')i++;cells.push(value);if(cells.some(x=>clean(x)))rows.push(cells);cells=[];value=''}
+  else value+=c;
+ }
+ cells.push(value);if(cells.some(x=>clean(x)))rows.push(cells);
+ if(quoted)throw Error('El CSV tiene comillas sin cerrar. Exporta el archivo nuevamente.');
+ if(!rows.length)throw Error('El archivo CSV está vacío.');
+ const headings=rows.shift().map(normalizeHeader);
+ const find=(...names)=>names.map(x=>headings.indexOf(normalizeHeader(x))).find(x=>x>=0)??-1;
+ const val=(row,...names)=>{const n=find(...names);return n<0?'':(row[n]??'')};
+ return {rows,find,val};
+}
+function parseCSV(raw){
+ const t=parseTable(raw),{rows,find,val}=t;
+ if(find('Tipo de incidencia')>=0&&find('Descripción')>=0){
+  return {records:[],incidences:rows.map(x=>({
+   id:val(x,'ID'),date:val(x,'Fecha','Fecha de incidencia'),folio:val(x,'Folio'),
+   category:val(x,'Tipo de incidencia'),priority:val(x,'Prioridad'),promoterName:val(x,'Promotor responsable','Responsable'),
+   status:val(x,'Estatus'),description:val(x,'Descripción'),actions:val(x,'Acciones realizadas'),
+   resolution:val(x,'Resultado o solución'),createdAt:val(x,'Creada el'),updatedAt:val(x,'Actualizada el'),closedAt:val(x,'Resuelta el')
+  })),hasRecords:false,hasInc:true,format:'CSV de incidencias'};
+ }
+ if(find('Folio')<0||find('Fecha de registro','Fecha')<0){
+  throw Error('CSV no reconocido. Debe ser una exportación de Registros (Folio y Fecha de registro) o de Incidencias (Tipo de incidencia y Descripción).');
+ }
+ return {records:rows.map(x=>({
+  id:val(x,'ID'),date:val(x,'Fecha de registro','Fecha'),type:val(x,'Tipo de producto','Tipo'),
+  folio:val(x,'Folio'),barcode:val(x,'Código de barras','Codigo de barras','Codigo'),
+  dental:val(x,'Plan dental'),cero:val(x,'Plan cero'),app:val(x,'Activación por app','Activacion por app'),
+  promoterFlag:val(x,'Promotor'),promoterName:val(x,'Nombre promotor','Promotor responsable'),
+  dynamic:val(x,'Dinámica','Dinamica'),incident:val(x,'Incidencia'),
+  createdAt:val(x,'Creado el'),updatedAt:val(x,'Actualizado el'),comment:val(x,'Comentario','Observaciones'),updateRequest:val(x,'Solicitud de actualización','Solicitud actualizacion'),updateRequestAt:val(x,'Fecha de solicitud')
+ })),incidences:[],hasRecords:true,hasInc:false,format:'CSV de registros'};
+}
+function parseBackup(raw,fileName){
+ const content=raw.replace(/^\uFEFF/,'').trimStart();
+ const json=fileName.toLowerCase().endsWith('.json')||content.startsWith('{')||content.startsWith('[');
+ if(!json)return {...parseCSV(raw),settings:null};
+ let p;
+ try{p=JSON.parse(content)}catch{throw Error('JSON inválido o incompleto. Selecciona el respaldo original, sin editar.')}
+ if(Array.isArray(p))return {records:p,incidences:[],hasRecords:true,hasInc:false,settings:null,format:'JSON de registros'};
+ if(!p||typeof p!=='object')throw Error('El JSON no contiene un respaldo de datos.');
+ const hasRecords=Array.isArray(p.records)||Array.isArray(p.registros)||Array.isArray(p.entries);
+ const hasInc=Array.isArray(p.incidences)||Array.isArray(p.incidents)||Array.isArray(p.expedientes);
+ if(!hasRecords&&!hasInc)throw Error('El JSON no contiene una lista «records» o «incidences». Comprueba que seleccionaste un respaldo de Registros.');
+ return {records:p.records||p.registros||p.entries||[],incidences:p.incidences||p.incidents||p.expedientes||[],hasRecords,hasInc,settings:p.settings&&typeof p.settings==='object'&&!Array.isArray(p.settings)?p.settings:null,format:'Respaldo JSON'};
+}
+function validImportDate(raw){
+ if(typeof raw!=='string')return '';
+ const s=raw.trim();let m,y,mo,d;
+ if((m=s.match(/^(\d{4})-(\d\d)-(\d\d)(?:T.*)?$/))){y=+m[1];mo=+m[2];d=+m[3]}
+ else if((m=s.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})$/))){d=+m[1];mo=+m[2];y=+m[3]}
+ else return '';
+ const dt=new Date(Date.UTC(y,mo-1,d));
+ return dt.getUTCFullYear()===y&&dt.getUTCMonth()===mo-1&&dt.getUTCDate()===d?`${y}-${z(mo)}-${z(d)}`:'';
+}
+function folioKey(f){return clean(f).toLocaleLowerCase('es')}
+function incidentKey(c){return [folioKey(c.folio),c.date,folioKey(c.description),folioKey(c.category)].join('|')}
+async function readImportText(f){
+ if(typeof f.text==='function'){
+  try{return await f.text()}catch(err){console.warn('Lectura alternativa de archivo',err)}
+ }
+ return new Promise((res,rej)=>{const reader=new FileReader();reader.onload=()=>res(String(reader.result||''));reader.onerror=()=>rej(reader.error||Error('No se pudo leer el archivo'));reader.readAsText(f,'UTF-8')});
+}
+function previewImport(){
+ if(!incoming)return;
+ const m=$('importMode').value,existing=records.map(r=>folioKey(r.folio)),found=new Set(existing),internal=new Set();
+ let duplicates=0,seenInFile=0;
+ for(const r of incoming.rows){const f=folioKey(r.folio);if(found.has(f))duplicates++;if(internal.has(f))seenInFile++;internal.add(f)}
+ const casesAlready=new Set(incidences.map(c=>c.id));
+ const matchingCases=incoming.cases.filter(c=>casesAlready.has(c.id)||incidences.some(x=>incidentKey(x)===incidentKey(c))).length;
+ const description=[
+  `Archivo: ${incoming.format} · ${incoming.fileName}`,
+  `Contiene ${incoming.hasRecords?incoming.rows.length+' registros':'sin tabla de registros'} y ${incoming.hasInc?incoming.cases.length+' expedientes de incidencias':'sin expedientes de incidencias'}.`,
+  incoming.hasRecords&&duplicates?`${duplicates} coincidencias de folio con la base actual.${m==='merge'?' Se omitirán al combinar.':m==='upsert'?' Se actualizarán por folio.':' El archivo sustituirá los registros actuales.'}`:'',
+  incoming.hasRecords&&seenInFile?`Advertencia: ${seenInFile} folio(s) repetido(s) dentro del archivo; al actualizar por folio se conservará la última fila.`:'',
+  incoming.hasInc&&matchingCases?`${matchingCases} incidencias coinciden con expedientes existentes.`:'',
+  incoming.settings?`Incluye módulo, catálogo de promotores y reglas; puedes optar por importarlos.`:'No incluye ajustes del módulo.',
+  m==='replace'?'RESTAURAR: solo se reemplazarán los conjuntos presentes en el archivo. Se pedirá confirmación antes de guardar.':
+   m==='upsert'?'ACTUALIZAR: los folios existentes conservan su identificación y reciben los datos del archivo; los nuevos se añaden.':
+   'COMBINAR: añade los folios y expedientes que no existen; nunca borra los datos actuales.'
+ ];
+ $('importInfo').textContent=description.filter(Boolean).join('\n');
+}
+async function onImportFile(){
+ incoming=null;$('runImport').disabled=true;
+ const f=$('importFile').files?.[0];
+ if(!f){$('importInfo').textContent='Selecciona un respaldo JSON o CSV para revisar qué contiene, sin modificar tus datos.';return}
+ try{
+  const raw=await readImportText(f),pack=parseBackup(raw,f.name);
+  if(!Array.isArray(pack.records)||!Array.isArray(pack.incidences))throw Error('El archivo contiene tablas de datos incorrectas.');
+  const rows=pack.records.map((x,i)=>{
+   if(!x||typeof x!=='object'||Array.isArray(x))throw Error(`Registro ${i+1}: formato incorrecto.`);
+   const folio=clean(x.folio??x.Folio);
+   if(!folio)throw Error(`Registro ${i+1}: falta el folio.`);
+   const date=validImportDate(x.date??x.fecha??x.Fecha);
+   if(!date)throw Error(`Registro ${i+1} (folio ${folio}): fecha inválida o vacía.`);
+   return normalizeRow({...x,folio,date});
+  });
+  const cases=pack.incidences.map((x,i)=>{
+   if(!x||typeof x!=='object'||Array.isArray(x))throw Error(`Incidencia ${i+1}: formato incorrecto.`);
+   if(!clean(x.description??x.descripcion))throw Error(`Incidencia ${i+1}: falta la descripción.`);
+   const date=validImportDate(x.date??x.fecha??x.Fecha);
+   if(!date)throw Error(`Incidencia ${i+1}: fecha inválida o vacía.`);
+   const result=normalizeIncident({...x,date,description:x.description??x.descripcion});
+   if(result.status==='Resuelta'&&!result.resolution){console.warn(`Incidencia ${i+1} resuelta sin solución; se conservará el dato histórico.`)}
+   return result;
+  });
+  incoming={rows,cases,hasRecords:pack.hasRecords,hasInc:pack.hasInc,settings:pack.settings,format:pack.format,fileName:f.name};
+  previewImport();$('runImport').disabled=false;
+ }catch(err){console.error(err);$('importInfo').textContent=`No se puede importar «${f.name}»: ${err.message}\nTus registros actuales no se han modificado.`;alertToast('No se pudo validar el archivo. Revisa el detalle en esta ventana.')}
+}
+function showImport(){
+ incoming=null;$('importFile').value='';$('importInfo').textContent='Selecciona un respaldo JSON o CSV para revisar qué contiene, sin modificar tus datos.';
+ $('importMode').value='merge';$('importSettings').checked=true;$('runImport').disabled=true;
+ modalClose('settingsModal');modalOpen('importModal');
+}
+function planRows(current,addedRows,mode){
+ let final=mode==='replace'?[]:current.map(r=>({...r}));
+ const ids=new Set(final.map(r=>r.id)),byFolio=new Map();
+ final.forEach((r,i)=>{if(!byFolio.has(folioKey(r.folio)))byFolio.set(folioKey(r.folio),i)});
+ let added=0,updated=0,skipped=0,duplicateFile=0;const seenFile=new Set();
+ for(const source of addedRows){
+  const f=folioKey(source.folio),exists=byFolio.get(f);
+  if(seenFile.has(f))duplicateFile++;seenFile.add(f);
+  if(mode==='merge'&&exists!==undefined){skipped++;continue}
+  let row={...source};
+  if(mode==='upsert'&&exists!==undefined){
+   const prev=final[exists];row={...row,id:prev.id,createdAt:prev.createdAt};final[exists]=row;updated++;continue;
+  }
+  if(!row.id||ids.has(row.id))row.id=id();
+  ids.add(row.id);final.push(row);if(!byFolio.has(f)||mode!=='replace')byFolio.set(f,final.length-1);added++;
+ }
+ return {final,added,updated,skipped,duplicateFile};
+}
+function planCases(current,newCases,mode){
+ let final=mode==='replace'?[]:current.map(x=>({...x}));
+ const byId=new Map(final.map((c,i)=>[c.id,i])),bySignature=new Map(final.map((c,i)=>[incidentKey(c),i]));
+ let added=0,updated=0,skipped=0;
+ for(const x of newCases){
+  const byIdentity=byId.get(x.id),byContent=bySignature.get(incidentKey(x));
+  const idx=byIdentity!==undefined?byIdentity:byContent;
+  if(mode==='merge'&&idx!==undefined){skipped++;continue}
+  if(mode==='upsert'&&idx!==undefined){final[idx]={...x,id:final[idx].id,createdAt:final[idx].createdAt};updated++;continue}
+  const c={...x};if(byId.has(c.id))c.id=id();
+  final.push(c);byId.set(c.id,final.length-1);bySignature.set(incidentKey(c),final.length-1);added++;
+ }
+ return {final,added,updated,skipped};
+}
+async function runImport(){
+ if(!storageReady&&recordInitPromise){try{await recordInitPromise}catch(e){console.error(e)}}if(!storageReady){$('importInfo').textContent=storageProblem||'No hay almacenamiento persistente disponible. Conserva el archivo original e inténtalo en Chrome.';return}
+ if(!incoming)return;
+ const mode=$('importMode').value,replace=mode==='replace',file=incoming;
+ const rowsPlan=file.hasRecords?planRows(records,file.rows,mode):{final:[...records],added:0,updated:0,skipped:0};
+ const casesPlan=file.hasInc?planCases(incidences,file.cases,mode):{final:[...incidences],added:0,updated:0,skipped:0};
+ const changes=rowsPlan.added+rowsPlan.updated+casesPlan.added+casesPlan.updated;
+ if(mode==='merge'&&!changes){
+  $('importInfo').textContent='No se agregó ningún dato: todos los folios o expedientes del archivo ya están en este dispositivo.\nSi deseas recuperar los valores del respaldo, selecciona «Actualizar por folio» o «Restaurar» y vuelve a importar. No se borró ni modificó información.';
+  alertToast('No hay datos nuevos para combinar.');return;
+ }
+ if(replace){
+  const effects=[file.hasRecords?`sustituir ${records.length} registros por ${rowsPlan.final.length}`:'conservar todos los registros existentes',file.hasInc?`sustituir ${incidences.length} incidencias por ${casesPlan.final.length}`:'conservar todas las incidencias existentes'];
+  if(!confirm(`RESTAURAR BASE\nSe van a ${effects.join(' y ')}.\n\nHaz un respaldo JSON de la base actual antes de continuar.\n¿Confirmas la restauración?`))return;
+ }
+ const btn=$('runImport');btn.disabled=true;btn.textContent='Importando…';
+ try{
+  await restoreDatasets(rowsPlan.final,casesPlan.final,file.hasInc,file.hasRecords);
+  records=rowsPlan.final;incidences=casesPlan.final;
+  let settingsIssue='';
+  if(file.settings&&$('importSettings').checked){
+   const p=file.settings;
+   const newSettings={...DEFAULT,...settings,...p,barcodePrefix:p.barcodePrefix??settings.barcodePrefix,usageRole:p.usageRole??settings.usageRole,assignedPromoter:p.assignedPromoter??settings.assignedPromoter,promoters:Array.isArray(p.promoters)?p.promoters.map(clean).filter(Boolean):[]};
+   try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(newSettings));settings=newSettings}
+   catch(err){console.warn('No se guardaron los ajustes del respaldo:',err);settingsIssue='; ajustes no restaurados por falta de espacio'}
+  }
+  refresh();modalClose('importModal');incoming=null;
+  openInitialSetup();
+  alertToast(`Listo: ${rowsPlan.added} registros nuevos, ${rowsPlan.updated} actualizados; ${casesPlan.added} incidencias nuevas, ${casesPlan.updated} actualizadas${settingsIssue}.`);
+ }catch(err){
+  console.error('Fallo al importar:',err);
+  $('importInfo').textContent=`No fue posible guardar el respaldo: ${err?.message||'error de almacenamiento'}.\nLa importación no se completó. Libera espacio en el dispositivo y conserva el archivo original.`;
+  alertToast('No se pudo guardar el archivo. Consulta el detalle en la ventana.');
+ }finally{btn.textContent='Importar datos';btn.disabled=!incoming}
+}
+async function clearAll(){if(!confirm(`¿Borrar los ${records.length} registros de este dispositivo? Esta acción no se puede deshacer.`))return;if(!confirm('Confirma por segunda vez que ya tienes un respaldo de seguridad.'))return;try{await dbBulk([],true);records=[];refresh();alertToast('Se borraron todos los registros.')}catch(err){alertToast('Error al borrar registros.');console.error(err)}}
+// Canvas: reportes 100% locales, sin librerías externas ni conexión a Internet.
+const PW=1000,PH=1294,RES=3;let ctx;
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function rect(x,y,w,h,color,r=0){ctx.fillStyle=color;ctx.beginPath();if(r)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h);ctx.fill()}
+function line(x,y,x2,y2,color='#e4eaf1',width=1){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x2,y2);ctx.stroke()}
+function write(s,x,y,size=18,color='#1a3655',weight='400',align='left'){ctx.font=`${weight} ${size}px Arial, sans-serif`;ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillText(String(s),x,y)}
+function fit(s,maxWidth,font=13){let t=String(s);ctx.font=`600 ${font}px Arial`;if(ctx.measureText(t).width<=maxWidth)return t;while(t.length&&ctx.measureText(t+'…').width>maxWidth)t=t.slice(0,-1);return t+'…'}
+function writeProductCell(name,x,y,width=104,font=9){
+ const words=String(name).split(/\s+/).filter(Boolean);
+ ctx.font=`600 ${font}px Arial`;
+ let line='',index=0;
+ while(index<words.length){
+  const next=(line?line+' ':'')+words[index];
+  if(line&&ctx.measureText(next).width>width)break;
+  if(!line&&ctx.measureText(next).width>width){line=fit(next,width,font);index++;break}
+  line=next;index++;
+ }
+ const rest=words.slice(index).join(' ');
+ if(rest){write(line,x,y+9,font,'#314b66','600');write(fit(rest,width,font),x,y+21,font,'#314b66','600')}
+ else write(line,x,y+15,font,'#314b66','600');
+}
+function canvasPage(){const c=document.createElement('canvas');c.width=PW*RES;c.height=PH*RES;const cctx=c.getContext('2d',{alpha:false});cctx.scale(RES,RES);ctx=cctx;rect(0,0,PW,PH,'#fff');return c}
+function pageBase(label,pageNum,total){rect(0,0,PW,13,'#07589b');write('REGISTROS',62,66,34,'#083d77','800');write(label,62,101,15,'#75889c','600');write(fit(settings.module.toUpperCase(),430,17),938,70,17,'#083d77','700','right');line(62,135,938,135);line(62,1227,938,1227);write('SEGUIMIENTO OPERATIVO  •  REPORTE GENERADO EN EL DISPOSITIVO',62,1250,12,'#8998aa','600');write(`PÁGINA ${pageNum} / ${total}`,938,1250,12,'#8998aa','600','right')}
+function statTile(x,y,w,h,label,value,note){rect(x,y,w,h,'#f2f7fc',12);rect(x,y,5,h,'#0a70b5',3);write(label.toUpperCase(),x+20,y+25,13,'#657a91','700');write(fmt(value),x+20,y+70,38,'#0a3b70','800');if(note)write(note,x+20,y+h-18,12,'#7c8c9c')}
+function reportSummary(total){const c=canvasPage(),today=todayKey(),start=monday(today),end=addDays(start,6),a=stats(fromPeriod('today')),b=stats(fromPeriod('week'));pageBase('DASHBOARD DE ACTIVIDAD',1,total);write('CORTE DEL REPORTE',62,168,12,'#74859a','800');write(textDate(today),62,194,21,'#173f66','700');write(`Semana operativa: ${humanDate(start)} al ${humanDate(end)}`,938,194,16,'#516b86','600','right');write(fit(`Productos: ${shownProduct('Regular')} / ${shownProduct('Garantizada')}`,850,13),62,222,13,'#627990','600');
+ write('ACUMULADO DEL DÍA',62,254,18,'#124a82','800');const labels=[['Trámites','tr'],['Ventas','sales'],['Regulares','regular'],['Garantizadas','guaranteed'],['Plan dental','dental'],['Plan cero','cero'],['Dinámica','dynamic']];labels.forEach(([label,k],i)=>{const row=Math.floor(i/4),col=i%4;statTile(62+col*224,277+row*122,210,107,label,a[k],null)});
+ write('ACUMULADO DE LA SEMANA',62,553,18,'#124a82','800');labels.forEach(([label,k],i)=>{const row=Math.floor(i/4),col=i%4;statTile(62+col*224,576+row*122,210,107,label,b[k],null)});
+ write('EVOLUCIÓN SEMANAL DE VENTAS',62,855,17,'#124a82','800');const counts=Array.from({length:7},(_,i)=>records.filter(x=>x.date===addDays(start,i)&&isSale(x)).length),max=Math.max(...counts,1),bw=82,gap=38,bx=95,by=1110;line(75,by,920,by,'#d8e3ec',2);counts.forEach((n,i)=>{const h=n/max*165;rect(bx+i*(bw+gap),by-h,bw,h,'#0b72b4',8);write(n,bx+i*(bw+gap)+bw/2,by-h-15,15,'#294c70','700','center');write(['LUN','MAR','MIÉ','JUE','VIE','SÁB','DOM'][i],bx+i*(bw+gap)+bw/2,by+24,13,'#6b8299','700','center')});write(`Conversión semanal: ${percent(b.sales,b.tr)}     •     Activaciones: ${b.app}     •     Incidencias: ${b.incident}`,62,1174,14,'#4e6580','700');return c}
+const DETAILS_PER_PAGE=31;
+function reportDetails(rows,pageNo,total,offset){const c=canvasPage();pageBase('DETALLE DE REGISTROS · SEMANA EN CURSO',pageNo,total);const start=monday(todayKey()),end=addDays(start,6);write(`OPERACIONES DEL ${humanDate(start)} AL ${humanDate(end)}`,62,176,18,'#164875','800');write(`TOTAL DE TRÁMITES: ${rows.length}`,938,176,14,'#718299','700','right');write(fit(`Productos: ${shownProduct('Regular')} / ${shownProduct('Garantizada')}`,850,12),62,205,12,'#627990','600');const top=222;rect(62,top,876,36,'#0a477f',6);const cols=[75,154,265,380,552,606,657,711,773,846];const headers=['FECHA','TIPO','FOLIO','CÓDIGO','PD','P0','APP','PROM.','DIN.','INC.'];headers.forEach((v,i)=>write(v,cols[i],top+18,11,'#fff','800'));const shown=rows.slice(offset,offset+DETAILS_PER_PAGE);shown.forEach((r,i)=>{const y=top+36+i*29;if(i%2===0)rect(62,y,876,29,'#f3f7fb');write(humanDate(r.date).slice(0,5),cols[0],y+15,12,'#314b66','600');writeProductCell(shownProduct(r.type),cols[1],y,104,9);write(fit(r.folio,102),cols[2],y+15,12,'#314b66','600');write(fit(shownBarcode(r.barcode)||'—',160),cols[3],y+15,12,'#314b66','600');[r.dental,r.cero,r.app,r.promoterFlag,r.dynamic,r.incident].forEach((flag,j)=>write(flag?'SÍ':'—',cols[4+j],y+15,12,flag?(j===5?'#b93c4a':'#0b8067'):'#a9b7c4','700'))});write(`Registros ${offset+1} al ${offset+shown.length} de ${rows.length}`,62,1196,13,'#6e8296');return c}
+function makePages(){const week=fromPeriod('week'),count=1+Math.ceil(week.length/DETAILS_PER_PAGE),pages=[reportSummary(count)];for(let i=0;i<week.length;i+=DETAILS_PER_PAGE)pages.push(reportDetails(week,pages.length+1,count,i));return pages}
+function canvasBlob(canvas,type,quality){return new Promise((resolve,reject)=>canvas.toBlob(x=>x?resolve(x):reject(new Error('No se pudo crear la imagen')),type,quality))}
+async function exportPNG(){try{const c=reportSummary(1),blob=await canvasBlob(c,'image/png');downloadBlob(blob,`dashboard_registros_${filename(settings.module)}_${todayKey()}.png`);alertToast('Dashboard PNG generado en alta resolución.')}catch(err){console.error(err);alertToast('No se pudo generar el PNG.')}}
+function pdfBuild(canvases){const enc=new TextEncoder(),pieces=[],positions=[0];let total=0;const push=x=>{const a=typeof x==='string'?enc.encode(x):x;pieces.push(a);total+=a.length};const obj=(n,body)=>{positions[n]=total;push(`${n} 0 obj\n`);push(body);push('\nendobj\n')};push(enc.encode('%PDF-1.4\n%\xC2\xA5\xC2\xA3\n'));const numbers=canvases.map((_,i)=>({page:3+i*3,content:4+i*3,image:5+i*3}));obj(1,'<< /Type /Catalog /Pages 2 0 R >>');obj(2,`<< /Type /Pages /Kids [${numbers.map(x=>`${x.page} 0 R`).join(' ')}] /Count ${numbers.length} >>`);for(let i=0;i<canvases.length;i++){const n=numbers[i],canvas=canvases[i],b64=canvas.toDataURL('image/jpeg',.97).split(',')[1],bin=atob(b64),jpeg=Uint8Array.from(bin,c=>c.charCodeAt(0));obj(n.page,`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /XObject << /Im0 ${n.image} 0 R >> >> /Contents ${n.content} 0 R >>`);const content='q\n612 0 0 792 0 0 cm\n/Im0 Do\nQ\n';obj(n.content,`<< /Length ${enc.encode(content).length} >>\nstream\n${content}endstream`);positions[n.image]=total;push(`${n.image} 0 obj\n<< /Type /XObject /Subtype /Image /Width ${canvas.width} /Height ${canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpeg.length} >>\nstream\n`);push(jpeg);push('\nendstream\nendobj\n')}
+ const xref=total,pages=2+canvases.length*3;push(`xref\n0 ${pages+1}\n0000000000 65535 f \n`);for(let i=1;i<=pages;i++)push(`${String(positions[i]).padStart(10,'0')} 00000 n \n`);push(`trailer\n<< /Size ${pages+1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`);return new Blob(pieces,{type:'application/pdf'})}
+async function exportPDF(){try{const pages=makePages(),pdf=pdfBuild(pages);downloadBlob(pdf,`reporte_registros_${filename(settings.module)}_${todayKey()}.pdf`);alertToast(`Reporte PDF generado: ${pages.length} página(s).`)}catch(err){console.error(err);alertToast('No se pudo generar el PDF.')}}
+
+ function incidentPDFPage(rows,index,total){
+  const c=canvasPage();pageBase('SEGUIMIENTO DE INCIDENCIAS · VISTA FILTRADA',index+1,total);
+  write('SEGUIMIENTO DE INCIDENCIAS',62,176,18,'#124a82','800');write(`Incidencias incluidas: ${rows.length}`,938,176,13,'#68839a','700','right');write(fit(`Productos: ${shownProduct('Regular')} / ${shownProduct('Garantizada')}`,850,12),62,199,12,'#627990','600');
+  const head=220;rect(62,head,876,40,'#0a477f',6);const cols=[75,174,315,474,625,748];
+  ['FECHA','FOLIO','PRODUCTO','PROMOTOR','RESUELTA','COMENTARIO'].forEach((x,i)=>write(x,cols[i],head+20,10,'#fff','800'));
+  const slice=rows.slice(index*18,(index+1)*18);
+  slice.forEach((x,j)=>{const y=head+40+j*50;if(j%2===0)rect(62,y,876,50,'#f2f7fb');write(humanDate(x.date).slice(0,10),cols[0],y+19,11,'#365470','600');write(fit(x.folio||'—',127,12),cols[1],y+19,12,'#365470','600');write(fit(shownProduct(x.type),138,11),cols[2],y+19,11,'#365470','600');write(fit(x.promoterName||'—',140,11),cols[3],y+19,11,'#365470','600');write(resolvedCase(x)?'SÍ':'NO',cols[4],y+19,12,resolvedCase(x)?'#137354':'#a55422','700');write(fit(incidentComment(x)||'Sin comentario',175,10),cols[5],y+19,10,'#365470','600');line(62,y+50,938,y+50,'#e0e8f0')});
+  write(`GENERADO EL ${humanDate(todayKey())}  ·  ${rows.length} INCIDENCIA(S)`,62,1186,12,'#657a91','700');return c
+ }
+async function exportIncidentsPDF(){try{const a=incidentFiltered(),n=Math.max(1,Math.ceil(a.length/18)),pages=Array.from({length:n},(_,i)=>incidentPDFPage(a,i,n)),pdf=pdfBuild(pages);downloadBlob(pdf,`incidencias_${filename(settings.module)}_${todayKey()}.pdf`);alertToast(`PDF de incidencias generado (${pages.length} página(s)).`)}catch(err){console.error(err);alertToast('No se pudo generar el PDF de incidencias.')}}
+async function menuAction(action){closeMenu();if(action==='help')showHelp();else if(action==='new')showRecord();else if(action==='import')showImport();else if(action==='settings')showSettings()}
+async function exportMenuAction(action){closeExportMenu();if(action==='copy')await copyReport();else if(action==='daily')openManagementReport();else if(action==='folios')await copyWeekFolios();else if(action==='png')await exportPNG();else if(action==='pdf')await exportPDF();else if(action==='csv')exportCSV();else if(action==='json')exportJSON()}
+function wire(){
+ $('incidentsCSV').onclick=incidentCSV;$('incidentsPDF').onclick=exportIncidentsPDF;
+ $('incidentForm').addEventListener('submit',saveIncident);$('copyIncidentDetail').onclick=copyIncident;
+ for(const name of ['incidentSearch','incidentStatusFilter','incidentPeriodFilter']){$(name).addEventListener(name==='incidentSearch'?'input':'change',()=>{incPageNumber=1;renderIncidents()})}
+ $('incidentPrev').onclick=()=>{incPageNumber--;renderIncidents()};$('incidentNext').onclick=()=>{incPageNumber++;renderIncidents()};
+ const openCase=target=>{const b=target.closest('[data-open-incident]');if(!b)return;const item=incidentItems().find(x=>x.id===b.dataset.openIncident);if(item)showIncident(item)};
+ $('incidentsTable').addEventListener('click',e=>openCase(e.target));
+ $('incidentsTable').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const b=e.target.closest('[data-open-incident]');if(b){e.preventDefault();openCase(b)}}});
+ document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>activateTab(b.dataset.tab)));document.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>{period=b.dataset.period;renderDashboard()}));$('topHelp').onclick=showHelp;$('helpNew').onclick=()=>{modalClose('helpModal');showRecord()};$('helpSettings').onclick=()=>{modalClose('helpModal');showSettings()};$('topMenu').onclick=toggleMenu;$('seeAll').onclick=()=>activateTab('records');$('backupQuick').onclick=exportJSON;$('fab').onclick=()=>{closeFloatingMenus();showRecord()};$('exportFab').onclick=toggleExportMenu;$('dailyReportForm').addEventListener('submit',copyManagementReport);$('fabBackdrop').onclick=closeFloatingMenus;window.addEventListener('resize',closeFloatingMenus);document.querySelectorAll('[data-menu]').forEach(b=>b.onclick=()=>menuAction(b.dataset.menu));document.querySelectorAll('[data-export]').forEach(b=>b.onclick=()=>exportMenuAction(b.dataset.export));document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>modalClose(b.dataset.close));document.querySelectorAll('.modal-backdrop').forEach(b=>b.addEventListener('click',e=>{if(e.target===b)modalClose(b.id)}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeFloatingMenus();for(const b of document.querySelectorAll('.modal-backdrop'))if(!b.hidden)modalClose(b.id)}});document.querySelectorAll('[data-product]').forEach(b=>b.onclick=()=>chooseProduct(b.dataset.product));$('changeProduct').onclick=()=>{$('productChoice').hidden=false;$('productPicked').hidden=true};document.querySelectorAll('[data-flag]').forEach(b=>b.onclick=()=>{const k=b.dataset.flag;formFlags[k]=!formFlags[k];updateFlags()});$('recordForm').onsubmit=saveRecord;
+ $('recordCommentEnabled').addEventListener('change',()=>{$('recordCommentGroup').hidden=!$('recordCommentEnabled').checked;if($('recordCommentEnabled').checked)$('recordComment').focus()});
+ $('setupForm').addEventListener('submit',saveInitialSetup);
+ document.querySelectorAll('[data-setup-role]').forEach(b=>b.addEventListener('click',()=>setSetupRole(b.dataset.setupRole)));
+ $('setupBarcodePrefix').addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,''));
+ $('setupAddPromoter').onclick=addInitialPromoter;
+ $('setupPromoterInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addInitialPromoter()}});
+ $('setupPromoters').addEventListener('click',e=>{const b=e.target.closest('[data-setup-remove]');if(!b)return;setupPromoters.splice(Number(b.dataset.setupRemove),1);drawSetupPromoters()});
+ $('settingsRole').addEventListener('change',()=>refreshSettingsAssignment());
+ $('settingsBarcodePrefix').addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,''));
+ $('promoterButtons').addEventListener('click',e=>{
+  const b=e.target.closest('[data-promoter-index]');if(!b)return;
+  const name=formPromoterOptions[Number(b.dataset.promoterIndex)];
+  if(name!==undefined)updatePromoterOptions(name);
+ });
+ for(const fieldId of ['recordFolio','recordBarcode']){
+  $(fieldId).addEventListener('input',e=>{
+   const el=e.currentTarget;
+   const max=fieldId==='recordBarcode'?5:undefined;
+   // Preserve loaded historical barcodes until the first edit; new entries are always <=5.
+   const digits=el.value.replace(/\D/g,'');
+   el.value=max?digits.slice(0,max):digits;
+  });
+ }
+document.querySelectorAll('#recentTable,#allTable').forEach(el=>{
+  el.addEventListener('click',e=>{const quick=e.target.closest('[data-quick-new]');if(quick){showRecord();return}const target=e.target.closest('[data-open-record]');if(target){const r=records.find(x=>x.id===target.dataset.openRecord);if(r)showRecordDetail(r)}});
+  el.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.closest('[data-open-record]')){e.preventDefault();const r=records.find(x=>x.id===e.target.closest('[data-open-record]').dataset.openRecord);if(r)showRecordDetail(r)}});
+ });
+ $('detailCopy').onclick=copyRecordDetail;$('detailEdit').onclick=editRecordDetail;$('detailDelete').onclick=deleteRecordDetail;$('detailIncident').onclick=incidentFromRecord;['searchInput','filterPeriod','filterType'].forEach(k=>$(k).addEventListener(k==='searchInput'?'input':'change',()=>{pageNumber=1;renderTables()}));$('prevPage').onclick=()=>{pageNumber--;renderTables()};$('nextPage').onclick=()=>{pageNumber++;renderTables()};$('addPromoter').onclick=addPromoter;$('promoterInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addPromoter()}});$('promoterChips').addEventListener('click',e=>{const b=e.target.closest('[data-remove-promoter]');if(!b)return;draftPromoters.splice(Number(b.dataset.removePromoter),1);renderPromoters()});$('saveSettings').onclick=saveSettings;$('settingsJSON').onclick=exportJSON;$('settingsCSV').onclick=exportCSV;$('settingsImport').onclick=showImport;$('clearAll').onclick=clearAll;$('importFile').onchange=onImportFile;$('importMode').onchange=previewImport;$('runImport').onclick=runImport;}
+async function init(){
+ loadSettings();wire();refresh();openInitialSetup();
+ // La captura se habilita en cuanto se cargan los registros: incidencias se abren después.
+ recordInitPromise=(async()=>{
+  try{
+   db=await openDB();
+   if(fallback&&!testLocalStore())throw Error('El navegador bloquea IndexedDB y localStorage; no es seguro guardar registros.');
+   if(!fallback){
+    try{await reconcileFallbackRecords()}catch(err){console.warn('No se fusionó el respaldo alternativo:',err);warnStorage('Los datos alternativos no se pudieron fusionar todavía. Conserva tu respaldo JSON; detalle: '+err.message)}
+   }
+   records=(await Promise.race([dbGetAll(),new Promise((_,reject)=>setTimeout(()=>reject(Error('La lectura de registros no respondió.')),OPEN_LIMIT_MS))])).map(normalizeRow).filter(r=>r.folio);
+   storageReady=true;refresh();
+   if(fallback)fallbackNotice('la base principal no respondió');
+  }catch(err){
+   console.error('Error al abrir los registros:',err);
+   if(testLocalStore()){
+    fallback=true;
+    records=fallbackRows().map(normalizeRow).filter(r=>r.folio);
+    storageReady=true;refresh();fallbackNotice('error en la base principal: '+err.message);
+   }else{storageReady=false;warnStorage('No se puede guardar información en este navegador: '+err.message);refresh()}
+  }
+ })();
+ await recordInitPromise;
+ // La página y captura de registros funcionan aunque IndexedDB de incidencias esté bloqueada.
+ try{
+  incdb=await openIncDB();
+  if(incFallback&&!testLocalStore())throw Error('No se puede utilizar almacenamiento local para incidencias.');
+  if(!incFallback){try{await reconcileFallbackIncidences()}catch(err){console.warn('No se fusionaron incidencias alternas:',err);warnStorage('Hay incidencias alternas pendientes de fusionar. Conserva el respaldo JSON.') }}
+  incidences=(await Promise.race([incGetAll(),new Promise((_,reject)=>setTimeout(()=>reject(Error('La lectura de incidencias no respondió.')),OPEN_LIMIT_MS))])).map(normalizeIncident).filter(x=>x.folio||x.linkedRecordId||x.description);
+  incidentReady=true;refresh();
+ }catch(err){
+  console.error('Error al abrir incidencias:',err);
+  if(testLocalStore()){
+   incFallback=true;incidences=incFallbackRows().map(normalizeIncident).filter(x=>x.folio||x.linkedRecordId||x.description);
+   incidentReady=true;refresh();fallbackNotice('error de la base de incidencias: '+err.message);
+  }else{incidentReady=false;warnStorage('No es posible guardar incidencias en este navegador: '+err.message)}
+ }
+}
+init();
+})();
+</script>
+</body>
+</html>
